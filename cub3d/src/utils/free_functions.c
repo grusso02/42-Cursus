@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:17:58 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:17:59 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 18:12:57 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	free_split(char **str)
 
 void	free_sprites(t_sprites **head_ref)
 {
-	t_sprites *current;
-	t_sprites *next;
+	t_sprites	*current;
+	t_sprites	*next;
 
 	current = (*head_ref);
 	while (current != NULL)

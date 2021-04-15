@@ -50,18 +50,15 @@ OBJ=$(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make -C libft
 	@gcc $(FLAGSD) $(INC) -o $(NAME) $(OBJ) $(LIB)
 
 %.o: %.c
 	@gcc $(FLAGS) $(INC) -o $@ -c $<
 
 clean: $(OBJ)
-	@make $@ -C libft
 	@rm -f $(OBJ)
 
 fclean: clean
-	@make $@ -C libft
 	@rm -f $(NAME)
 
 re:

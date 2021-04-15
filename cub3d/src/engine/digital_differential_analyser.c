@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:36:29 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:10:46 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 17:46:27 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	get_wall_dist(t_ray *ray)
 	}
 }
 
-void		dda(t_game *game, t_layout *layout, t_ray *ray)
+void	dda(t_game *game, t_layout *layout, t_ray *ray)
 {
 	while (ray->hit != 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 09:12:40 by mrouabeh          #+#    #+#             */
-/*   Updated: 2021/04/15 16:15:26 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 17:53:23 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	check_colors(int r, int g, int b)
 	return (1);
 }
 
-int			get_color_handle(char **rgb, t_game *game)
+int	get_color_handle(char **rgb, t_game *game)
 {
 	int	r;
 	int	g;

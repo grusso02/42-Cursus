@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 15:21:16 by mrouabeh          #+#    #+#             */
-/*   Updated: 2021/04/15 16:15:20 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 17:53:12 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	flood_fill(t_game *game, t_layout layout, int pos_x, int pos_y)
 	flood_fill(game, layout, pos_x, pos_y - 1);
 }
 
-void		check_layout(t_game *game, t_layout *layout, t_player *player)
+void	check_layout(t_game *game, t_layout *layout, t_player *player)
 {
 	if (layout->nb_row < 3 || layout->nb_col < 3)
 		exit_failure("The map is too small;\n", game);

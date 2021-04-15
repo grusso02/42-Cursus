@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 14:21:13 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:16:52 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 18:05:31 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	image_header(t_game *game, t_image *image, int fd)
 static void	fill_bitmap(t_game *game, t_image *image, int fd)
 {
 	int	x;
-	int y;
+	int	y;
 	int	r;
 	int	g;
 	int	b;
@@ -71,11 +71,12 @@ static void	fill_bitmap(t_game *game, t_image *image, int fd)
 	}
 }
 
-void		create_bitmap(t_game *game)
+void	create_bitmap(t_game *game)
 {
 	int	fd;
 
-	if ((fd = open("screenshot.bmp", O_CREAT | O_RDWR)) < 0)
+	fd = open("screenshot.bmp", O_CREAT | O_RDWR);
+	if ((fd) < 0)
 		exit_failure("Impossible to create the bitmap file;\n", game);
 	file_header(game->image, fd);
 	image_header(game, game->image, fd);

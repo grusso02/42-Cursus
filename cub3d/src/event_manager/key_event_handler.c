@@ -6,13 +6,13 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 16:02:56 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:13:21 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 17:52:11 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		key_press(int key_code, t_game *game)
+int	key_press(int key_code, t_game *game)
 {
 	if (key_code == KEY_A)
 		game->keys->key_a = 1;
@@ -31,7 +31,7 @@ int		key_press(int key_code, t_game *game)
 	return (0);
 }
 
-int		key_release(int key_code, t_game *game)
+int	key_release(int key_code, t_game *game)
 {
 	if (key_code == KEY_A)
 		game->keys->key_a = 0;

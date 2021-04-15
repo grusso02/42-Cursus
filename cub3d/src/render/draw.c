@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:17:17 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:17:19 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 18:06:16 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	set_wall(t_game *game, t_ray *ray)
 	set_texture_on_image(game, texture, ray);
 }
 
-void		draw_col(t_game *game, t_window *window, t_ray *ray)
+void	draw_col(t_game *game, t_window *window, t_ray *ray)
 {
 	ray->draw_start = -ray->line_height / 2 + window->height / 2;
 	ray->draw_end = ray->line_height / 2 + window->height / 2;
@@ -42,11 +42,11 @@ void		draw_col(t_game *game, t_window *window, t_ray *ray)
 	if (ray->draw_end >= window->height)
 		ray->draw_end = window->height - 1;
 	if (ray->side == 0 || ray->side == 1)
-		ray->wall_x = game->player->pos_y +
-			ray->perp_wall_dist * ray->ray_dir_y;
+		ray->wall_x = game->player->pos_y
+			+ ray->perp_wall_dist * ray->ray_dir_y;
 	else
-		ray->wall_x = game->player->pos_x +
-			ray->perp_wall_dist * ray->ray_dir_x;
+		ray->wall_x = game->player->pos_x
+			+ ray->perp_wall_dist * ray->ray_dir_x;
 	ray->wall_x -= floor(ray->wall_x);
 	set_wall(game, ray);
 	set_color_on_image(game, ray);

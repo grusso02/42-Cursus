@@ -6,13 +6,13 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 18:31:26 by svalenti          #+#    #+#             */
-/*   Updated: 2021/04/15 16:18:47 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 17:42:50 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		exit_game(t_game *game)
+void	exit_game(t_game *game)
 {
 	clear_game(game);
 	exit(EXIT_SUCCESS);
@@ -22,12 +22,13 @@ static void	game_init(t_game *game)
 {
 	game->window->mlx_ptr = mlx_init();
 	game->window->win_ptr = mlx_new_window(game->window->mlx_ptr,
-							game->window->width, game->window->height, "CUB3D");
+			game->window->width, game->window->height, "CUB3D");
 	get_texture(game);
 	game->image->img_ptr = mlx_new_image(game->window->mlx_ptr,
-									game->window->width, game->window->height);
+			game->window->width, game->window->height);
 	game->image->img_data = mlx_get_data_addr(game->image->img_ptr,
-		&(game->image->bpp), &(game->image->size_line), &(game->image->endian));
+			&(game->image->bpp), &(game->image->size_line),
+			&(game->image->endian));
 }
 
 static void	game_loop(t_game *game)
@@ -49,11 +50,12 @@ static void	cub3d(char *map_path, int save, t_game *game)
 	game_loop(game);
 }
 
-int			main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_game *game;
+	t_game	*game;
 
-	if (!(game = game_struct_init()))
+	game = game_struct_init();
+	if (!(game))
 	{
 		ft_puterror("Impossible to allocate memory for game structure;\n");
 		exit(EXIT_FAILURE);

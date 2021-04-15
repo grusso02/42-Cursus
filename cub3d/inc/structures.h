@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/04/09 11:53:50 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2021/04/15 18:49:17 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-typedef struct	s_keys
+typedef struct s_keys
 {
 	int	left_arr;
 	int	right_arr;
@@ -24,7 +24,7 @@ typedef struct	s_keys
 	int	key_esc;
 }				t_keys;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	double	pos_x;
 	double	pos_y;
@@ -37,7 +37,7 @@ typedef struct	s_player
 	double	rot_speed;
 }				t_player;
 
-typedef struct	s_ray
+typedef struct s_ray
 {
 	int		x;
 	int		y;
@@ -64,7 +64,7 @@ typedef struct	s_ray
 	double	*z_buffer;
 }				t_ray;
 
-typedef struct	s_layout
+typedef struct s_layout
 {
 	char	*tmp_map;
 	int		**map;
@@ -72,7 +72,7 @@ typedef struct	s_layout
 	int		nb_col;
 }				t_layout;
 
-typedef struct	s_window
+typedef struct s_window
 {
 	int		width;
 	int		height;
@@ -80,7 +80,7 @@ typedef struct	s_window
 	void	*win_ptr;
 }				t_window;
 
-typedef struct	s_image
+typedef struct s_image
 {
 	void	*img_ptr;
 	char	*img_data;
@@ -92,13 +92,13 @@ typedef struct	s_image
 	int		height;
 }				t_image;
 
-typedef struct	s_sprite
+typedef struct s_sprite
 {
 	int	x;
 	int	y;
 }				t_sprite;
 
-typedef struct	s_sprites
+typedef struct s_sprites
 {
 	t_sprite			*sprite;
 	double				distance;
@@ -121,7 +121,7 @@ typedef struct	s_sprites
 	struct s_sprites	*next;
 }				t_sprites;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	int			map_started;
 	int			map_stopped;

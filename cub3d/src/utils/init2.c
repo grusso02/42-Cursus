@@ -6,17 +6,18 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:18:15 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:18:16 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 18:16:32 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_image		*image_struct_init(void)
+t_image	*image_struct_init(void)
 {
 	t_image	*image;
 
-	if (!(image = (t_image *)malloc(sizeof(t_image))))
+	image = (t_image *)malloc(sizeof(t_image));
+	if (!(image))
 		return (NULL);
 	image->img_data = NULL;
 	image->img_ptr = NULL;
@@ -33,7 +34,8 @@ t_sprites	*sprites_struct_init(t_sprite *sprite, double distance)
 {
 	t_sprites	*sprites;
 
-	if (!(sprites = (t_sprites *)malloc(sizeof(t_sprites))))
+	sprites = (t_sprites *)malloc(sizeof(t_sprites));
+	if (!(sprites))
 		return (NULL);
 	sprites->sprite = sprite;
 	sprites->distance = distance;

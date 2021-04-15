@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2021/04/15 16:24:55 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 18:45:58 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define CUB3D_H
 
 # include "includes.h"
-# include "libft.h"
 # include "structures.h"
 # include "constant.h"
+# include "libft.h"
 # include <mlx.h>
 
 /*
@@ -72,7 +72,7 @@ void		rotate_right(t_player *player);
 
 void		dda(t_game *game, t_layout *layout, t_ray *ray);
 void		raycasting(t_game *game, t_player *player, t_window *window,
-			t_ray ray);
+				t_ray ray);
 
 void		draw_col(t_game *game, t_window *window, t_ray *ray);
 void		pixel_put(t_image *image, int x, int y, int color);
@@ -81,10 +81,10 @@ void		set_texture_on_image(t_game *game, t_image *texture, t_ray *ray);
 
 void		is_sprite(t_game *game, t_ray *ray);
 void		draw_sprites(t_game *game, t_player *player,
-			t_window *window, t_ray *ray);
+				t_window *window, t_ray *ray);
 void		size_sprite(t_sprites *current, t_window *window);
 void		projection_sprite(t_player *player, t_window *window,
-			t_sprites *current);
+				t_sprites *current);
 
 void		create_bitmap(t_game *game);
 

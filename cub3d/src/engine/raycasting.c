@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 19:21:49 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:11:31 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 17:48:11 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ static void	get_perp_and_height(t_ray *ray, t_player *player, t_window *window)
 {
 	if (ray->side == 0 || ray->side == 1)
 		ray->perp_wall_dist = (ray->map_x - player->pos_x + (1 - ray->step_x)
-		/ 2) / ray->ray_dir_x;
+				/ 2) / ray->ray_dir_x;
 	else if (ray->side == 2 || ray->side == 3)
 		ray->perp_wall_dist = (ray->map_y - player->pos_y + (1 - ray->step_y)
-		/ 2) / ray->ray_dir_y;
+				/ 2) / ray->ray_dir_y;
 	ray->line_height = (int)(window->height / ray->perp_wall_dist);
 	ray->z_buffer[ray->x] = ray->perp_wall_dist;
 }
@@ -80,7 +80,7 @@ static void	init_ray(t_ray *ray, t_player *player, t_window *window)
 	get_step_and_side_dist(ray, player);
 }
 
-void		raycasting(
+void	raycasting(
 	t_game *game,
 	t_player *player,
 	t_window *window,
@@ -88,7 +88,8 @@ void		raycasting(
 )
 {
 	ray.x = 0;
-	if (!(ray.z_buffer = (double *)malloc(sizeof(double) * window->width)))
+	ray.z_buffer = (double *)malloc(sizeof(double) * window->width);
+	if (!(ray.z_buffer))
 		exit_failure("Impossible to allocate memory for the z_buffer;\n", game);
 	ft_bzero(ray.z_buffer, sizeof(double) * window->width);
 	while (ray.x < window->width)

@@ -6,18 +6,18 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:17:31 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:17:32 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 18:11:42 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		pixel_put(t_image *image, int x, int y, int color)
+void	pixel_put(t_image *image, int x, int y, int color)
 {
-	unsigned char *src;
-	unsigned char r;
-	unsigned char g;
-	unsigned char b;
+	unsigned char	*src;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
 
 	src = (unsigned char *)&color;
 	r = src[0];
@@ -28,7 +28,7 @@ void		pixel_put(t_image *image, int x, int y, int color)
 	image->img_data[y * image->size_line + x * image->bpp / 8 + 2] = b;
 }
 
-void		set_color_on_image(t_game *game, t_ray *ray)
+void	set_color_on_image(t_game *game, t_ray *ray)
 {
 	int	y;
 
@@ -49,21 +49,21 @@ static void	texture_put(t_game *game, t_image *texture, t_ray *ray)
 	ray->text_y = ((d * texture->height) / ray->line_height)
 		/ texture->size_line;
 	game->image->img_data[ray->y * game->image->size_line
-		+ ray->x * game->image->bpp / 8] =
-		texture->img_data[ray->text_y * texture->size_line
+		+ ray->x * game->image->bpp / 8]
+		= texture->img_data[ray->text_y * texture->size_line
 		+ ray->text_x * (texture->bpp / 8)];
 	game->image->img_data[ray->y * game->image->size_line
-		+ ray->x * game->image->bpp / 8 + 1] =
-		texture->img_data[ray->text_y * texture->size_line
+		+ ray->x * game->image->bpp / 8 + 1]
+		= texture->img_data[ray->text_y * texture->size_line
 		+ ray->text_x * (texture->bpp / 8) + 1];
 	game->image->img_data[ray->y * game->image->size_line
-		+ ray->x * game->image->bpp / 8 + 2] =
-		texture->img_data[ray->text_y * texture->size_line
+		+ ray->x * game->image->bpp / 8 + 2]
+		= texture->img_data[ray->text_y * texture->size_line
 		+ ray->text_x * (texture->bpp / 8) + 2];
 	ray->y++;
 }
 
-void		set_texture_on_image(t_game *game, t_image *texture, t_ray *ray)
+void	set_texture_on_image(t_game *game, t_image *texture, t_ray *ray)
 {
 	ray->y = ray->draw_start;
 	while (ray->y <= ray->draw_end)

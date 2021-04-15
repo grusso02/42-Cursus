@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/12 10:53:30 by mrouabeh          #+#    #+#             */
-/*   Updated: 2019/11/12 10:53:54 by mrouabeh         ###   ########.fr       */
+/*   Created: 2021/01/20 10:12:36 by grusso            #+#    #+#             */
+/*   Updated: 2021/04/15 18:44:30 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# include "includes.h"
+
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <stdio.h>
 # include "libft.h"
-# define BUFFER_SIZE 32
 
 int		get_next_line(int fd, char **line);
-void	ft_strjoin_free(char **str, char *buf);
-int		get_line(char **line, char **str, int index, int step);
-int		check_line_break(char *str);
-int		check_error(int fd, char **line);
+char	*ft_strnew(size_t size);
+char	*ft_strcpy(char *dest, char *src);
+
 #endif

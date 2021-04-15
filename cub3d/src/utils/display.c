@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:17:50 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:17:51 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 18:12:39 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	print_map(int **map, int nb_row, int nb_col)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < nb_row)
@@ -34,7 +34,7 @@ void	print_map(int **map, int nb_row, int nb_col)
 
 void	print_sprites(t_sprites *head_ref)
 {
-	t_sprites *current;
+	t_sprites	*current;
 
 	current = head_ref;
 	while (current != NULL)

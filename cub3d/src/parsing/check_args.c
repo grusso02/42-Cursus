@@ -6,13 +6,13 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:15:05 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:15:07 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 17:52:36 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int			check_args(char *map_path, char *option, t_game *game)
+int	check_args(char *map_path, char *option, t_game *game)
 {
 	char	**path;
 	int		path_len;

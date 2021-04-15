@@ -6,17 +6,18 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:18:09 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:18:10 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 18:15:43 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_keys		*keys_struct_init(void)
+t_keys	*keys_struct_init(void)
 {
-	t_keys *keys;
+	t_keys	*keys;
 
-	if (!(keys = (t_keys *)malloc(sizeof(t_keys))))
+	keys = (t_keys *)malloc(sizeof(t_keys));
+	if (!(keys))
 		return (NULL);
 	keys->key_a = 0;
 	keys->key_s = 0;
@@ -30,9 +31,10 @@ t_keys		*keys_struct_init(void)
 
 t_player	*player_struct_init(void)
 {
-	t_player *player;
+	t_player	*player;
 
-	if (!(player = (t_player *)malloc(sizeof(t_player))))
+	player = (t_player *)malloc(sizeof(t_player));
+	if (!(player))
 		return (NULL);
 	player->pos_x = 0.5;
 	player->pos_y = 0.5;
@@ -48,9 +50,10 @@ t_player	*player_struct_init(void)
 
 t_layout	*layout_struct_init(void)
 {
-	t_layout *layout;
+	t_layout	*layout;
 
-	if (!(layout = (t_layout *)malloc(sizeof(t_layout))))
+	layout = (t_layout *)malloc(sizeof(t_layout));
+	if (!(layout))
 		return (NULL);
 	layout->map = NULL;
 	layout->tmp_map = NULL;
@@ -61,9 +64,10 @@ t_layout	*layout_struct_init(void)
 
 t_window	*window_struct_init(void)
 {
-	t_window *window;
+	t_window	*window;
 
-	if (!(window = (t_window *)malloc(sizeof(t_window))))
+	window = (t_window *)malloc(sizeof(t_window));
+	if (!(window))
 		return (NULL);
 	window->width = 0;
 	window->height = 0;
@@ -72,11 +76,12 @@ t_window	*window_struct_init(void)
 	return (window);
 }
 
-t_game		*game_struct_init(void)
+t_game	*game_struct_init(void)
 {
-	t_game *game;
+	t_game	*game;
 
-	if (!(game = (t_game *)malloc(sizeof(t_game))))
+	game = (t_game *)malloc(sizeof(t_game));
+	if (!(game))
 		return (NULL);
 	game->map_started = 0;
 	game->map_stopped = 0;
@@ -84,7 +89,8 @@ t_game		*game_struct_init(void)
 	game->c_color = 0;
 	game->f_color = 0;
 	game->sprites_head = NULL;
-	if (!(game->no_texture = image_struct_init())
+	game->no_texture = image_struct_init();
+	if (!(game->no_texture)
 		|| !(game->so_texture = image_struct_init())
 		|| !(game->we_texture = image_struct_init())
 		|| !(game->ea_texture = image_struct_init())

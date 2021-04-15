@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:15:46 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:15:48 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 18:04:01 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 static void	set_texture(t_game *game, t_image *texture)
 {
-	if (!(texture->img_ptr =
-		mlx_xpm_file_to_image(game->window->mlx_ptr,
-		texture->path,
-		&texture->width,
-		&texture->height)))
+	texture->img_ptr = mlx_xpm_file_to_image(game->window->mlx_ptr,
+			texture->path,
+			&texture->width,
+			&texture->height);
+	if (!(texture->img_ptr))
 		exit_failure("Impossible to load a texture;\n", game);
-	texture->img_data =
-		mlx_get_data_addr(texture->img_ptr,
-		&(texture->bpp),
-		&(texture->size_line),
-		&(texture->endian));
+	texture->img_data = mlx_get_data_addr(texture->img_ptr,
+			&(texture->bpp),
+			&(texture->size_line),
+			&(texture->endian));
 }
 
-void		get_texture(t_game *game)
+void	get_texture(t_game *game)
 {
 	set_texture(game, game->no_texture);
 	set_texture(game, game->so_texture);

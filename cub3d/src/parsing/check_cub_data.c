@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:15:13 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 16:15:14 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/15 17:52:54 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	check_map(t_game *game)
 	}
 }
 
-void		check_cub_data(t_game *game)
+void	check_cub_data(t_game *game)
 {
 	if (game->window->height == 0 || game->window->width == 0)
 	{
