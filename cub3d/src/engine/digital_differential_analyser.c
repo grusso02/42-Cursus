@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   digital_differential_analyser.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/09 14:03:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/11 14:15:29 by mrouabeh         ###   ########.fr       */
+/*   Created: 2021/04/06 18:36:29 by grusso            #+#    #+#             */
+/*   Updated: 2021/04/15 16:10:46 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
