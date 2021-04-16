@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 18:31:26 by svalenti          #+#    #+#             */
-/*   Updated: 2021/04/15 17:42:50 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/16 16:29:09 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	cub3d(char *map_path, int save, t_game *game)
 	game_loop(game);
 }
 
-int	main(int ac, char **av)
+int	main(int argc, char *argv[])
 {
 	t_game	*game;
 
@@ -60,11 +60,11 @@ int	main(int ac, char **av)
 		ft_puterror("Impossible to allocate memory for game structure;\n");
 		exit(EXIT_FAILURE);
 	}
-	if (ac > 3 || ac < 2)
+	if (argc > 3 || argc < 2)
 		exit_failure("You must have at least two arguments;\n", game);
-	else if (ac == 2 && !check_args(av[1], NULL, game))
-		cub3d(av[1], 0, game);
-	else if (ac == 3 && !check_args(av[1], av[2], game))
-		cub3d(av[1], 1, game);
+	else if (argc == 2 && !check_args(argv[1], NULL, game))
+		cub3d(argv[1], 0, game);
+	else if (argc == 3 && !check_args(argv[1], argv[2], game))
+		cub3d(argv[1], 1, game);
 	return (EXIT_SUCCESS);
 }

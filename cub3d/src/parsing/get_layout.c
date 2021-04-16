@@ -6,18 +6,19 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:15:36 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 18:00:59 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/16 17:36:33 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	spaghetti(char *line, int *row, int i)
+int	ft_spaghetti(char *line, int i, int *row)
 {
 	if (ft_isdigit(line[i]))
-		row[i] = '0';
+		row[i] = line[i] - '0';
 	else
 		row[i] = 0;
+	return (row[i]);
 }
 
 static int	*get_row(char *line, t_game *game, int current_row)
@@ -39,7 +40,7 @@ static int	*get_row(char *line, t_game *game, int current_row)
 				row[i] = 0;
 			}
 			else
-				spaghetti(line, row, i);
+				row[i] = ft_spaghetti(line, i, row);
 			i++;
 		}
 		while (i < game->layout->nb_col)

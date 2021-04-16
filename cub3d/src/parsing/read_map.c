@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:15:54 by grusso            #+#    #+#             */
-/*   Updated: 2021/04/15 18:33:19 by grusso           ###   ########.fr       */
+/*   Updated: 2021/04/16 17:09:04 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	read_map(char *map_path, t_game *game)
 	char		*line;
 
 	fd = open(map_path, O_RDONLY);
-	if ((fd) < 0)
+	if (fd < 0)
 		exit_failure("The file doesn't exist;\n", game);
 	else
 	{
@@ -86,5 +86,4 @@ void	read_map(char *map_path, t_game *game)
 		get_layout(game);
 		check_layout(game, game->layout, game->player);
 	}
-	close (fd);
 }
