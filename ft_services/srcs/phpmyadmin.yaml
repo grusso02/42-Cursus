@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+        name: phpmyadmin-service
+        annotations:
+                metallb.universe.tf/allow-shared-ip: allow
+        labels:
+                app: phpmydmin
+spec:
+        selector:
+                app: phpmyadmin
+        type: LoadBalancer
+        ports:
+                - port: 5000
+                  name: phpmydmin
+                  targetPort: 5000
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin-deployment
+  labels:
+    app: phpmyadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+        - name: phpmyadmin-container
+          image: php_img
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
+              name: phpmyadmin
+          env:
+            - name: PMA_HOST
+              value: wordpress-mysql-service
+            - name: PMA_PORT
+              value: "3306"
+           #- name: MYSQL_ROOT_PASSWORD
+           #   valueFrom:
+           #     secretKeyRef:
+           #       name: mysql-pass
+           #      key: password
