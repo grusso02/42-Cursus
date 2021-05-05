@@ -3,10 +3,12 @@
 #include <errno.h>
 #include <string.h>
 #include "libft/libft.h"
+#include <unistd.h>
+#include "get_next_line_git/get_next_line.h"
 
 void print_prompt1(void)
 {
-    printf("$ ");
+    write(1, "$ ",2);
 }
 
 void print_prompt2(void)
@@ -14,13 +16,14 @@ void print_prompt2(void)
     printf("> ");
 }
 
+/*
 char *read_cmd(void)
 {
     char buf[1024];
     char *ptr = NULL;
     char ptrlen = 0;
 
-    while(fgets(buf, 1024, stdin))
+    while(read(1, buf, 1) != 0)
     {
         int buflen = strlen(buf);
         if(!ptr)
@@ -54,21 +57,29 @@ char *read_cmd(void)
     }
     return ptr;
 }
-
+*/
 int main(int argc, char *argv[])
 {
-	char *cmd;
+	char    *cmd;
+    int     fd;
+    char    *buf;
+    int     ret;
+    int     first = 0;
 
-	//welcome();
-
+    buf = NULL;
+    fd = 0;
 	while (1)
 	{
+        // reading command text
 		print_prompt1();
-		cmd = read_cmd();
+       
+		ret = get_next_line(fd, &buf);
+        cmd = buf;
+        int len_cmd = ft_strlen(cmd);
 
 		if (!cmd)
 			return (0);
-		if (cmd[0] == 0 || strcmp(cmd, "\n") == 0)
+		if (cmd == 0 || strcmp(cmd, "\n") == 0)
 		{
 			free (cmd);
 			continue;
@@ -81,6 +92,9 @@ int main(int argc, char *argv[])
 
 		printf("%s\n", cmd);
 		free(cmd);
+
+        //when loof finish mak e a function to exit e free buf
+        //free(buf);
 	}
 	return (0);
 }
