@@ -1,100 +1,90 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <string.h>
-#include "libft/libft.h"
-#include <unistd.h>
-#include "get_next_line_git/get_next_line.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanzilo <dlanzilo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/05 16:32:55 by grusso            #+#    #+#             */
+/*   Updated: 2021/05/30 17:13:00 by dlanzilo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void print_prompt1(void)
+#include "includes/minishell.h"
+
+void	check_if_cmd(t_scanner *scan)
 {
-    write(1, "$ ",2);
+	int	res;
+	int	i;
+
+	i = 0;
+	while (scan->split_str[i])
+	{
+		get_command(scan, scan->split_str[i]);
+		if (scan->command == NULL)
+			break ;
+		get_arg(scan, scan->split_str[i]);
+		all_words(scan, scan->split_str[i]);
+		get_exec_arg(scan);
+		check_redirect(scan);
+		check_pipe(scan->split_str[i], scan);
+		check_reverse_red(scan, scan->split_str[i]);
+		if (scan->count_pipe < 1 && scan->count_rev < 1)
+		{
+			res = cmp_command(scan);
+			parse_cmd(res, scan, scan->split_str[i]);
+		}
+		free_scanner(scan);
+		i++;
+	}
 }
 
-void print_prompt2(void)
+char	*set_cmd(char *cmd)
 {
-    printf("> ");
+	int	j;
+
+	j = 0;
+	while (cmd[j])
+		j++;
+	j--;
+	while (cmd[j] == ' ' || cmd[j] == '\t')
+		j--;
+	cmd[j + 1] = '\0';
+	return (cmd);
 }
 
-/*
-char *read_cmd(void)
+void	scanner(char *cmd, t_scanner *scan)
 {
-    char buf[1024];
-    char *ptr = NULL;
-    char ptrlen = 0;
-
-    while(read(1, buf, 1) != 0)
-    {
-        int buflen = strlen(buf);
-        if(!ptr)
-            ptr = malloc(buflen+1);
-        else
-        {
-            char *ptr2 = realloc(ptr, ptrlen+buflen+1);
-            if(ptr2)
-                ptr = ptr2;
-            else
-            {
-                free(ptr);
-                ptr = NULL;
-            }
-        }
-        if(!ptr)
-        {
-            fprintf(stderr, "error: failed to alloc buffer: %s\n", strerror(errno));
-            return NULL;
-        }
-        strcpy(ptr+ptrlen, buf);
-        if(buf[buflen-1] == '\n')
-        {
-            if(buflen == 1 || buf[buflen-2] != '\\')
-                return ptr;
-            ptr[ptrlen+buflen-2] = '\0';
-            buflen -= 2;
-            print_prompt2();
-        }
-        ptrlen += buflen;
-    }
-    return ptr;
+	cmd = set_cmd(cmd);
+	get_all_str(scan, cmd);
+	get_all_str2(scan, cmd);
+	split_string(scan);
+	check_if_cmd(scan);
 }
-*/
-int main(int argc, char *argv[])
-{
-	char    *cmd;
-    int     fd;
-    char    *buf;
-    int     ret;
-    int     first = 0;
 
-    buf = NULL;
-    fd = 0;
+int	main(int ac, char **av, char *envp[])
+{
+	char		*cmd;
+	t_scanner	scan;
+
+	(void)ac;
+	(void)av;
+	init_scan(&scan);
+	take_env(&scan, envp);
+	welcome();
 	while (1)
 	{
-        // reading command text
+		signal(SIGINT, ft_handler);
+		signal(SIGQUIT, ft_handler);
 		print_prompt1();
-       
-		ret = get_next_line(fd, &buf);
-        cmd = buf;
-        int len_cmd = ft_strlen(cmd);
-
-		if (!cmd)
-			return (0);
-		if (cmd == 0 || strcmp(cmd, "\n") == 0)
+		rawmode(&scan);
+		cmd = ft_strdup(scan.buf);
+		if (ft_strcmp(cmd, "") != 0)
 		{
-			free (cmd);
-			continue;
+			scanner(cmd, &scan);
+			free_all(&scan);
 		}
-		if (strcmp(cmd, "exit\n") == 0)
-		{
-			free(cmd);
-			break;
-		}
-
-		printf("%s\n", cmd);
 		free(cmd);
-
-        //when loof finish mak e a function to exit e free buf
-        //free(buf);
 	}
 	return (0);
 }

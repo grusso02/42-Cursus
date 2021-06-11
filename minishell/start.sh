@@ -1,0 +1,1 @@
+make fclean && make && sleep 3s && gcc minishell.a libft/libft.a && sleep 1s && ./a.out

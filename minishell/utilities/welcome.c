@@ -1,16 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   welcome.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 16:50:46 by grusso            #+#    #+#             */
-/*   Updated: 2021/05/04 16:54:10 by grusso           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../includes/minishell.h"
 
-#include "libft.h"
+#define	CYAN2	"\033[36m"
+#define	RESET	"\033[0m"
 
 void	welcome(void)
 {
@@ -22,5 +13,5 @@ void	welcome(void)
 	printf("██║ ╚═╝ ██║██║██║ ╚████║██║███████║██║  ██║███████╗███████╗");
 	printf("███████╗\n╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝");
 	printf("╚══════╝╚══════╝\n"RESET);
-	printf("\t\t\t\t\t\t grusso, dlanzilo\n");
+	printf("\t\t--->Donato Lanzilotti --->Gabriele Russo\n");
 }
