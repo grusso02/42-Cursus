@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grusso <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 11:17:13 by grusso            #+#    #+#             */
-/*   Updated: 2021/01/15 18:44:17 by grusso           ###   ########.fr       */
+/*   Updated: 2021/06/11 17:53:45 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	i = 0;
-	if (!s || !f || !(str = ft_strdup(s)))
+	str = ft_strdup(s);
+	if (!s || !f || !str)
 		return (0);
 	while (str[i])
 	{

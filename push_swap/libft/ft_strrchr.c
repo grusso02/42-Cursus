@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grusso <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:08:02 by grusso            #+#    #+#             */
-/*   Updated: 2021/01/13 16:59:19 by grusso           ###   ########.fr       */
+/*   Updated: 2021/06/11 17:54:28 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int l;
+	int	l;
 
 	l = ft_strlen(s);
 	while (l >= 0)

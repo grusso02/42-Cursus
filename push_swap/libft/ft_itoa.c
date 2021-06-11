@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grusso <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 11:06:24 by grusso            #+#    #+#             */
-/*   Updated: 2021/01/18 10:07:25 by grusso           ###   ########.fr       */
+/*   Updated: 2021/06/11 17:45:47 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ char	*ft_itoa(int n)
 		n /= 10;
 		size++;
 	}
-	if (!(str = (char *)malloc(size + 1)))
+	str = (char *)malloc(size + 1);
+	if (!str)
 		return (0);
 	*(str + size--) = '\0';
 	while (sign > 0)
