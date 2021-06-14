@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pass_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:25:28 by gabriele          #+#    #+#             */
-/*   Updated: 2021/06/11 18:15:09 by grusso           ###   ########.fr       */
+/*   Updated: 2021/06/13 16:08:04 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ int	word_counter(char *argv[], char c)
 	return (wcount - 1);
 }
 
-int	check_double(t_stack *stack, int len)
+int	check_double(t_stack *stack)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i <= len / 2)
+	while (i <= stack->len_a - 1)
 	{
 		j = i + 1;
-		while (j <= len)
+		while (j <= stack->len_a)
 		{
 			if (stack->a[i] == stack->a[j])
 				return (1);
@@ -69,9 +69,7 @@ int	pass_stack_a(char *argv[], t_stack *stack)
 	int	n;
 	int	sign;
 
-	stack->a = (long *)ft_calloc(word_counter(argv, ' '), sizeof(long));
-	if (!stack->a)
-		return (1);
+	stack->len_a = word_counter(argv, ' ');
 	i = 0;
 	k = 0;
 	n = 0;
@@ -101,10 +99,10 @@ int	pass_stack_a(char *argv[], t_stack *stack)
 		}
 		i++;
 	}
-	if (check_double(stack, word_counter(argv, ' ')))
+	if (check_double(stack))
 		return (1);
 	k = -1;
-	while (++k <= word_counter(argv, ' ') - 1)
+	while (++k < word_counter(argv, ' '))
 		printf("%ld\n", stack->a[k]);
 	return (0);
 }
