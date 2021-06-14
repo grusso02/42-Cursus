@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 17:32:40 by grusso            #+#    #+#             */
-/*   Updated: 2021/06/13 20:30:23 by gabriele         ###   ########.fr       */
+/*   Updated: 2021/06/14 16:05:46 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,50 +40,6 @@ void	ft_ss(t_stack *stack)
 		return ;
 	ft_sa(stack);
 	ft_sb(stack);
-}
-
-void	ft_pa(t_stack *stack)
-{
-	int	i;
-	int	len;
-	long tmp[stack->len_b];
-	int j;
-
-	i = 0;
-	stack->a[stack->len_a] = (long)ft_calloc(1, sizeof(long));
-	len = ++stack->len_a;
-	while (i < stack->len_a - 1)
-	{
-		stack->a[len - 1] = stack->a[len - 2];
-		len--;
-		i++;
-	}
-	stack->a[0] = stack->b[0];
-	i = -1;
-	while (++i < stack->len_b)
-		tmp[i] = stack->b[i];
-	free(stack->b);
-	stack->len_b--;
-	stack->b = (long *)ft_calloc(stack->len_b, sizeof(long));
-	i = 0;
-	j = 1;
-	while (i < stack->len_b)
-	{
-		stack->b[i] = tmp[j];
-		i++;
-		j++;
-	}
-
-
-
-	puts("NEW STACK A");
-	int k = -1;
-	while (++k < stack->len_a)
-		printf("%ld\n", stack->a[k]);
-	puts("NEW STACK B");
-	k = -1;
-	while (++k < stack->len_b)
-		printf("%ld\n", stack->b[k]);
 }
 
 void	ft_ra(t_stack *stack)
