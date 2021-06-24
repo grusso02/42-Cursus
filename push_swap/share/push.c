@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:05:17 by grusso            #+#    #+#             */
-/*   Updated: 2021/06/14 16:42:01 by grusso           ###   ########.fr       */
+/*   Updated: 2021/06/24 13:32:59 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ long *ft_intremove(int dim, long *stack)
 	while (++i < dim)
 		tmp2[i] = stack[i];
 	free(stack);
+	stack = NULL;
 	dim--;
 	if (dim > 0)
 	{
@@ -68,25 +69,28 @@ long *ft_intremove(int dim, long *stack)
 	return (stack);
 }
 
-void	ft_pa(t_stack *stack)
+void	ft_pa(t_stack *stack, int n)
 {
-	int	i;
-	int j;
-	int	len;
-	long tmp2[stack->len_b];
-
+	if (!stack->b)
+		return ;
 	stack->a = ft_intjoin(stack->len_a, stack->a, stack->b);
 	stack->len_a++;
 	stack->b = ft_intremove(stack->len_b, stack->b);
 	stack->len_b--;
+	stack->moves++;
+	if (n == PRINT)
+		ft_putstr_fd("pa\n", 1);
+}
 
-
-	puts("NEW STACK A");
-	int k = -1;
-	while (++k < stack->len_a)
-		printf("%ld\n", stack->a[k]);
-	puts("NEW STACK B");
-	k = -1;
-	while (++k < stack->len_b)
-		printf("%ld\n", stack->b[k]);
+void	ft_pb(t_stack *stack, int n)
+{
+	if (!stack->a)
+		return ;
+	stack->b = ft_intjoin(stack->len_b, stack->b, stack->a);
+	stack->len_b++;
+	stack->a = ft_intremove(stack->len_a, stack->a);
+	stack->len_a--;
+	stack->moves++;
+	if (n == PRINT)
+		ft_putstr_fd("pb\n", 1);
 }
