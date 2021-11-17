@@ -24,11 +24,16 @@ class class_phonebook
 {
 	public:
 		void		ft_add();
-		std::string	set_firstName(std::string s);
-		std::string	set_lastName(std::string s);
-		std::string	set_nickname(std::string s);
-		std::string	set_phoneNumber(std::string s);
-		std::string	set_darkestSecret(std::string s);
+		void		set_firstName(std::string s);
+		void		set_lastName(std::string s);
+		void		set_nickname(std::string s);
+		void		set_phoneNumber(std::string s);
+		void		set_darkestSecret(std::string s);
+		std::string	get_firstName(int i);
+		std::string	get_lastName(int i);
+		std::string	get_nickname(int i);
+		std::string	get_phoneNumber(int i);
+		std::string	get_darkestSecret(int i);
 		void		ft_search();
 		std::string	ft_substr(std::string s);
 	private:

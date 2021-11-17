@@ -6,7 +6,7 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 11:37:52 by gabriele          #+#    #+#             */
-/*   Updated: 2021/10/28 16:59:37 by gabriele         ###   ########.fr       */
+/*   Updated: 2021/11/17 13:05:08 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void	class_phonebook::ft_search()
 	std::string	index;
 	int			idx;
 
+	if (contacts[0].first_name == "\0")
+	{
+		std::cout << RED("THE PHONEBOOK IS EMPTY!") << std::endl;
+		return ;
+	}
 	std::cout << std::setw(10) << "INDEX";
 	std::cout << "|" << std::setw(10) << "FIRST NAME";
 	std::cout << "|" << std::setw(10) << "LAST NAME";
@@ -25,9 +30,9 @@ void	class_phonebook::ft_search()
 	for (int j = 0; contacts[j].first_name > "\0" ; j++)
 	{
 		std::cout << std::setw(10) << j;
-		std::cout << "|" << std::setw(10) << ft_substr(contacts[j].first_name);
-		std::cout << "|" << std::setw(10) << ft_substr(contacts[j].last_name);
-		std::cout << "|" << std::setw(10) << ft_substr(contacts[j].nickname) << std::endl;
+		std::cout << "|" << std::setw(10) << ft_substr(get_firstName(j));
+		std::cout << "|" << std::setw(10) << ft_substr(get_lastName(j));
+		std::cout << "|" << std::setw(10) << ft_substr(get_nickname(j)) << std::endl;
 	}
 
 	while (1)
@@ -37,11 +42,11 @@ void	class_phonebook::ft_search()
 		if (index.length() == 1 && index >= "0" && index <= "8")
 		{
 			idx = std::stoi(index);
-			std::cout << CYAN("First name:\t\t") << contacts[idx].first_name << std::endl;
-			std::cout << CYAN("Last name:\t\t") << contacts[idx].last_name << std::endl;
-			std::cout << CYAN("Nickname:\t\t") << contacts[idx].nickname << std::endl;
-			std::cout << CYAN("Phone number:\t\t") << contacts[idx].phone_number << std::endl;
-			std::cout << CYAN("Darkest Secret:\t\t") << contacts[idx].darkest_secret << std::endl;
+			std::cout << CYAN("First name:\t\t") << get_firstName(idx) << std::endl;
+			std::cout << CYAN("Last name:\t\t") << get_lastName(idx) << std::endl;
+			std::cout << CYAN("Nickname:\t\t") << get_nickname(idx) << std::endl;
+			std::cout << CYAN("Phone number:\t\t") << get_phoneNumber(idx) << std::endl;
+			std::cout << CYAN("Darkest Secret:\t\t") << get_darkestSecret(idx) << std::endl;
 			break ;
 		}
 		else
@@ -57,23 +62,24 @@ void	class_phonebook::ft_add()
 		i = 0;
 	std::cout << RED("First name") << std::endl;
 	std::getline(std::cin, str);
-	contacts[i].first_name = set_firstName(str);
+	set_firstName(str);
 
 	std::cout << RED("Last name") << std::endl;
 	std::getline(std::cin, str);
-	contacts[i].last_name = set_lastName(str);
+	set_lastName(str);
 
 	std::cout << RED("Nickname") << std::endl;
 	std::getline(std::cin, str);
-	contacts[i].nickname = set_nickname(str);
+	set_nickname(str);
 
 	std::cout << RED("Phone number") << std::endl;
 	std::getline(std::cin, str);
-	contacts[i].phone_number = set_phoneNumber(str);
+	set_phoneNumber(str);
 
 	std::cout << RED("Darkest secret") << std::endl;
 	std::getline(std::cin, str);
-	contacts[i].darkest_secret = set_darkestSecret(str);
+	set_darkestSecret(str);
+
 	std::cout << GREEN("CONTACT ADDED!") << std::endl;
 	i++;
 }
@@ -85,7 +91,7 @@ int	main()
 
 	while (1)
 	{
-		std::cout << RED("Insert a command: ADD, SEARCH or EXIT") << std::endl;
+		std::cout << GREEN("Insert a command: ADD, SEARCH or EXIT") << std::endl;
 		std::getline(std::cin, command);
 		if (command == "EXIT")
 			break;
