@@ -8,7 +8,7 @@ OBJ =	$(SRCS:.cpp=.o)
 CC	=	clang++
 
 $(NAME): $(OBJ)
-	@$(CC) $(SRCS) -o $(NAME)
+	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 
 all : $(NAME)
 
