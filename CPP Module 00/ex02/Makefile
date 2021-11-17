@@ -1,4 +1,4 @@
-NAME =	phonebook
+NAME =	Account
 
 FLAGS =	-Wall -Werror -Wextra
 
