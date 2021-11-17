@@ -10,12 +10,7 @@ OBJ =	$(SRCS:.c=.o)
 CC	=	gcc
 
 $(NAME): $(OBJ)
-	@echo "[Removing last version...]"
-	@rm -rf philo
-	@echo "[philo compilation...]"
-	@$(CC) $(SRCS) -o $(NAME) -lpthread
-	@echo "[Done!]"
-	@$(MAKE) clean
+	@$(CC) $(FLAGS) $(SRCS) -o $(NAME) -lpthread
 
 all : $(NAME)
 
@@ -32,3 +27,5 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re : fclean all
+
+.PHONY: all norme leaks clean fclean re
