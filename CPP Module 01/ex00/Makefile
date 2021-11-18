@@ -1,9 +1,8 @@
-NAME =	Account
+NAME =	Zombie
 
 FLAGS =	-Wall -Werror -Wextra
 
-#SRCS =	$(shell find . -name '*.cpp')
-SRCS = main.cpp Zombie.cpp
+SRCS =	$(shell find . -name '*.cpp')
 
 OBJ =	$(SRCS:.cpp=.o)
 CC	=	clang++
