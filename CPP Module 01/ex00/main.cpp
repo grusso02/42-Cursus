@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 16:03:20 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/18 12:04:44 by gabriele         ###   ########.fr       */
+/*   Updated: 2021/11/18 15:55:48 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 int main()
 {
+	/***********Heap memory***********/
 	Zombie *zombie = NULL;
 
-	zombie = newZombie("Morgana");
+	zombie = newZombie("Ignazio");
 	zombie->announce();
+
+	/***********Stack memory***********/
+	randomChump("Valentino");
+
 	delete zombie;
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 12:03:38 by gabriele          #+#    #+#             */
-/*   Updated: 2021/11/18 12:04:15 by gabriele         ###   ########.fr       */
+/*   Created: 2021/11/18 12:03:38 by grusso          #+#    #+#             */
+/*   Updated: 2021/11/18 15:38:01 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 Zombie*	newZombie(std::string name)
 {
-	Zombie* zombie = new Zombie(name);
-
-	return (zombie);
+	return (new Zombie(name));
 }
