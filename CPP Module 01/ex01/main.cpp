@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:15:15 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/18 16:48:07 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/18 16:54:43 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int main()
 		zombies[i].announce();
 
 	delete[](zombies);
-	return (0);
+	return 0;
 }
