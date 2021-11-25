@@ -1,15 +1,18 @@
-NAME =	Zombie
+NAME =		Fixed
 
-CC	=	clang++
-FLAGS =	-Wall -Wextra -Werror -std=c++98
+CXX	=		clang++
+CXXFLAGS =	-Wall -Wextra -Werror -std=c++98
 
-SRCS =	$(shell find . -name '*.cpp')
-OBJ =	$(SRCS:.cpp=.o)
-
-$(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+SRCS =		$(shell find . -name '*.cpp')
+OBJ =		$(SRCS:.cpp=.o)
 
 all : $(NAME)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $<
+
+$(NAME): $(OBJ)
+	@$(CXX) $(CXXLAGS) -o $(NAME) $(OBJ)
 
 clean:
 	@rm -rf $(OBJ)
