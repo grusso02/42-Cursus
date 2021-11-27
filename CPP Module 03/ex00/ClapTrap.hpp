@@ -4,20 +4,18 @@
 # include <iostream>
 # include <string>
 
-# define HIT_POINTS		10
-# define ENERGY_POINTS	10
-# define ATTACK_DAMAGE	10
-
 class ClapTrap
 {
 	public:
 		ClapTrap();
 		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap& other);
 		~ClapTrap();
+		ClapTrap& operator=(const ClapTrap& other);
 		void	attack(std::string const & target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-	private:
+	protected:
 		std::string	_name;
 		int			_hitPoints;
 		int			_energyPoints;
