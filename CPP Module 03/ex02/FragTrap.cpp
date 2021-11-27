@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 18:39:37 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/27 18:55:42 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/27 20:11:36 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 		_energyPoints = other._energyPoints;
 		_attackDamage = other._attackDamage;
 	}
-	std::cout << "FragTrap " << _name << " was copied from " << other._name<< std::endl;
+	std::cout << "FragTrap " << _name << " was copied from " << other._name << std::endl;
 
 	return *this;
 }

@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:16:51 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/27 18:48:31 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/27 20:11:04 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 		_energyPoints = other._energyPoints;
 		_attackDamage = other._attackDamage;
 	}
-	std::cout << "ScavTrap " << _name << " was copied from " << other._name<< std::endl;
+	std::cout << "ScavTrap " << _name << " was copied from " << other._name << std::endl;
 
 	return *this;
 }
