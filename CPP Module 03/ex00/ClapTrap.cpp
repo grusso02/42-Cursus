@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 15:11:20 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/27 18:00:06 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/27 18:47:59 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap() : _name("default")
 	_hitPoints = HIT_POINTS;
 	_energyPoints = ENERGY_POINTS;
 	_attackDamage = ATTACK_DAMAGE;
-	std::cout << _name << " landed on Earth" << std::endl;
+	std::cout << "ClapTrap " << _name << " landed on Earth" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name)
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name)
 	_hitPoints = HIT_POINTS;
 	_energyPoints = ENERGY_POINTS;
 	_attackDamage = ATTACK_DAMAGE;
-	std::cout << _name << " landed on Earth" << std::endl;
+	std::cout << "ClapTrap " << _name << " landed on Earth" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -43,7 +43,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << _name << " ran away" << std::endl;
+	std::cout << "ClapTrap " << _name << " ran away" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)

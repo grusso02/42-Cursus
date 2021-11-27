@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:16:51 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/27 18:08:30 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/27 18:48:31 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 	_hitPoints = HIT_POINTS;
 	_energyPoints = ENERGY_POINTS;
 	_attackDamage = ATTACK_DAMAGE;
-	std::cout << _name << " emerged from the sea" << std::endl;
+	std::cout << "ScavTrap " << _name << " emerged from the sea" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -29,7 +29,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	_hitPoints = HIT_POINTS;
 	_energyPoints = ENERGY_POINTS;
 	_attackDamage = ATTACK_DAMAGE;
-	std::cout << _name << " emerged from the sea" << std::endl;
+	std::cout << "ScavTrap " << _name << " emerged from the sea" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
@@ -39,7 +39,7 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << _name << " is back to swim among the fish" << std::endl;
+	std::cout << "ScavTrap " << _name << " is back to swim among the fish" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
