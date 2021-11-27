@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 20:47:55 by gabriele          #+#    #+#             */
-/*   Updated: 2021/11/26 18:29:05 by gabriele         ###   ########.fr       */
+/*   Updated: 2021/11/27 18:29:39 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,9 +118,8 @@ Fixed	Fixed::operator*(const Fixed& other) const
 
 Fixed	Fixed::operator/(const Fixed& other) const
 {
-	Fixed	ret;
+	Fixed	ret(this->toFloat() / other.toFloat());
 
-	ret.setRawBits((getRawBits() / other.getRawBits()) << fract);
 	return (ret);
 }
 
