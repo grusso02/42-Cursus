@@ -13,8 +13,8 @@ class Fixed
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw); 
 	private:
-		int	rawBits;
-		static const int fract;
+		int					rawBits;
+		static const int	fract;
 };
 
 #endif
