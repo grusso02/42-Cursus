@@ -12,8 +12,6 @@ class WrongCat : public WrongAnimal
 		WrongCat& operator=(const WrongCat& other);
 		std::string	getType() const;
 		void makeSound() const;
-	protected:
-		std::string	_type;
 };
 
 #endif

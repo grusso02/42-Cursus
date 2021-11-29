@@ -6,14 +6,15 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:32:57 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/29 18:33:33 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/29 19:01:47 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() : _type("WrongCat")
+WrongCat::WrongCat()
 {
+	_type = "WrongCat";
 	std::cout << "WrongCat was created" << std::endl;
 }
 

@@ -6,14 +6,15 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:29:06 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/29 17:43:16 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/29 19:00:52 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : _type("Cat")
+Cat::Cat()
 {
+	_type = "Cat";
 	std::cout << "Cat was created" << std::endl;
 }
 

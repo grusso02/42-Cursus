@@ -6,14 +6,15 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:29:09 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/29 17:43:20 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/29 19:01:11 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : _type("Dog")
+Dog::Dog()
 {
+	_type = "Dog";
 	std::cout << "Dog was created" << std::endl;
 }
 
