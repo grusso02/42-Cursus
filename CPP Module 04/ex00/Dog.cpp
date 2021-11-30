@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:29:09 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/30 15:32:27 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/30 16:54:02 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ Dog& Dog::operator=(const Dog& other)
 		this->_type = other._type;
 
 	return (*this);
-}
-
-std::string	Dog::getType() const
-{
-	return (_type);
 }
 
 void		Dog::makeSound() const

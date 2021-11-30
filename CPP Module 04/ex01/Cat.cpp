@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:29:06 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/30 16:32:07 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/30 16:55:16 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ Cat::~Cat()
 {
 	delete _brain;
 	std::cout << "Cat Destructor called" << std::endl;
-}
-
-std::string	Cat::getType() const
-{
-	return (_type);
 }
 
 void		Cat::makeSound() const

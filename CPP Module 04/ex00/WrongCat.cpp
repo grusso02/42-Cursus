@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:32:57 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/30 15:34:30 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/30 16:54:20 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ WrongCat& WrongCat::operator=(const WrongCat& other)
 		this->_type = other._type;
 
 	return (*this);
-}
-
-std::string	WrongCat::getType() const
-{
-	return (_type);
 }
 
 void		WrongCat::makeSound() const
