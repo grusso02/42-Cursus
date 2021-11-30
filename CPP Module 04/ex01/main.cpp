@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 16:34:26 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/29 19:57:11 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/30 16:23:07 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 int main()
 {
 	Animal* animals[N];
+	Brain*	brain;
 
 	std::cout << "-------Subject Test-------" << std::endl;
 	const Animal* j = new Dog();
@@ -39,5 +40,14 @@ int main()
 
 	std::cout << "\n-------Copy Test-------" << std::endl;
 	Cat pallina;
-	Dog birillo;
+
+	brain = pallina.getBrain();
+	brain->_ideas[0] = "Idea 1";
+	brain->_ideas[1] = "Idea 2";
+	brain->_ideas[2] = "Idea 3";
+
+	std::cout << pallina.getBrain()->_ideas[0] << std::endl;
+
+	Cat copy(pallina);
+	std::cout << copy.getBrain()->_ideas[0] << std::endl;
 }

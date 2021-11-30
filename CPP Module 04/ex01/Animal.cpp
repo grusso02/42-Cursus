@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 16:35:29 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/29 18:19:08 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/30 15:30:41 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 Animal::Animal() : _type("")
 {
-	std::cout << "Animal was created" << std::endl;
+	std::cout << "Animal Constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal& other)
 {
 	this->_type = other._type;
+	std::cout << "Animal Copy Constructor called" << std::endl;
 }
 
 Animal::~Animal()
 {
-	std::cout << "Animal was destroyed" << std::endl;
+	std::cout << "Animal Destructor called" << std::endl;
 }
 
 void	Animal::makeSound() const

@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:32:57 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/29 19:01:47 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/30 15:34:30 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 WrongCat::WrongCat()
 {
 	_type = "WrongCat";
-	std::cout << "WrongCat was created" << std::endl;
+	std::cout << "WrongCat Constructor called" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat& other)
 {
 	this->_type = other._type;
+	std::cout << "WrongCat Copy Constructor called" << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat was destroyed" << std::endl;
+	std::cout << "WrongCat Destructor called" << std::endl;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other)

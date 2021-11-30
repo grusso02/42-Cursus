@@ -8,9 +8,10 @@ class Brain
 {
 	public:
 		Brain();
+		Brain(const Brain& other);
 		~Brain();
-	private:
-		std::string ideas[100];
+		Brain& operator=(const Brain& other);
+		std::string _ideas[100];
 };
 
 #endif

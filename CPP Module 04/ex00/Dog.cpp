@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:29:09 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/29 19:01:11 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/30 15:32:27 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 Dog::Dog()
 {
 	_type = "Dog";
-	std::cout << "Dog was created" << std::endl;
+	std::cout << "Dog Constructor called" << std::endl;
 }
 
 Dog::Dog(const Dog& other)
 {
 	this->_type = other._type;
+	std::cout << "Dog Copy Constructor called" << std::endl;
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog was destroyed" << std::endl;
+	std::cout << "Dog Destructor called" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other)

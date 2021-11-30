@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:30:08 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/29 18:30:59 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/30 15:33:47 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 WrongAnimal::WrongAnimal() : _type("")
 {
-	std::cout << "WrongAnimal was created" << std::endl;
+	std::cout << "WrongAnimal Constructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other)
 {
 	this->_type = other._type;
+	std::cout << "WrongAnimal Copy Constructor called" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal was destroyed" << std::endl;
+	std::cout << "WrongAnimal Destructor called" << std::endl;
 }
 
 void	WrongAnimal::makeSound() const

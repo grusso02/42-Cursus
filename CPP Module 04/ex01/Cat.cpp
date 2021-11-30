@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:29:06 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/29 19:49:17 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/30 16:32:07 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,38 @@ Cat::Cat()
 {
 	_type = "Cat";
 	_brain = new Brain();
-	std::cout << "Cat was created" << std::endl;
+	std::cout << "Cat Constructor called" << std::endl;
+	//std::cout << "Cat Brain Address: " << &_brain << std::endl;
 }
 
 Cat::Cat(const Cat& other)
 {
 	_type = other._type;
 	_brain = new Brain();
-	*_brain = *other._brain; 
+	*_brain = *other._brain;
+	std::cout << "Cat Copy Constructor called" << std::endl;
+	//std::cout << "Cat Copy Brain Address: " << &_brain << std::endl;
 }
 
 Cat::~Cat()
 {
 	delete _brain;
-	std::cout << "Cat was destroyed" << std::endl;
+	std::cout << "Cat Destructor called" << std::endl;
+}
+
+std::string	Cat::getType() const
+{
+	return (_type);
+}
+
+void		Cat::makeSound() const
+{
+	std::cout << "Miao!" << std::endl;
+}
+
+Brain*		Cat::getBrain() const
+{
+	return (_brain);
 }
 
 Cat& Cat::operator=(const Cat& other)
@@ -41,14 +59,4 @@ Cat& Cat::operator=(const Cat& other)
 	}
 
 	return (*this);
-}
-
-std::string	Cat::getType() const
-{
-	return (_type);
-}
-
-void		Cat::makeSound() const
-{
-	std::cout << "Miao!" << std::endl;
 }

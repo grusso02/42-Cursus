@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:29:06 by grusso            #+#    #+#             */
-/*   Updated: 2021/11/29 19:00:52 by grusso           ###   ########.fr       */
+/*   Updated: 2021/11/30 15:31:13 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 Cat::Cat()
 {
 	_type = "Cat";
-	std::cout << "Cat was created" << std::endl;
+	std::cout << "Cat Constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat& other)
 {
 	this->_type = other._type;
+	std::cout << "Cat Copy Constructor called" << std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat was destroyed" << std::endl;
+	std::cout << "Cat Destructor called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other)
