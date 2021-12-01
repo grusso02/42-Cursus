@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 17:49:10 by grusso            #+#    #+#             */
-/*   Updated: 2021/12/01 19:00:19 by grusso           ###   ########.fr       */
+/*   Created: 2021/12/01 16:09:25 by grusso            #+#    #+#             */
+/*   Updated: 2021/12/01 19:01:14 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Cure.hpp"
 
-AMateria::AMateria(std::string const & type) : _type(type) {}
+Cure::Cure() : AMateria("cure") {}
 
-AMateria::AMateria(const AMateria& other)
+Cure::Cure(const Cure& other) : AMateria(other) {}
+
+Cure::~Cure() {}
+
+AMateria*	Cure::clone() const
 {
-	_type = other._type;
+	return (new Cure());
 }
 
-AMateria::~AMateria() {}
-
-std::string const & AMateria::getType() const
+void		Cure::use(ICharacter& target)
 {
-	return (_type);
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
 
-void AMateria::use(ICharacter& target)
-{
-	(void)target;
-}
-
-AMateria& AMateria::operator=(const AMateria& other)
+Cure& Cure::operator=(const Cure& other)
 {
 	if (this != &other) {}
 

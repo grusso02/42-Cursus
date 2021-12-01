@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 17:49:10 by grusso            #+#    #+#             */
-/*   Updated: 2021/12/01 19:00:19 by grusso           ###   ########.fr       */
+/*   Created: 2021/12/01 15:44:21 by grusso            #+#    #+#             */
+/*   Updated: 2021/12/01 18:46:42 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Ice.hpp"
 
-AMateria::AMateria(std::string const & type) : _type(type) {}
+Ice::Ice() : AMateria("ice") {}
 
-AMateria::AMateria(const AMateria& other)
+Ice::Ice(const Ice& other) : AMateria(other) {}
+
+Ice::~Ice() {}
+
+AMateria*	Ice::clone() const
 {
-	_type = other._type;
+	return (new Ice());
 }
 
-AMateria::~AMateria() {}
-
-std::string const & AMateria::getType() const
+void		Ice::use(ICharacter& target)
 {
-	return (_type);
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
 
-void AMateria::use(ICharacter& target)
-{
-	(void)target;
-}
-
-AMateria& AMateria::operator=(const AMateria& other)
+Ice& Ice::operator=(const Ice& other)
 {
 	if (this != &other) {}
 
