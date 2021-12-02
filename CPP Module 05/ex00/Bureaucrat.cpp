@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:06:02 by grusso            #+#    #+#             */
-/*   Updated: 2021/12/02 17:00:58 by grusso           ###   ########.fr       */
+/*   Updated: 2021/12/02 17:14:36 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other)
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& bureaucrat)
 {
-	os << bureaucrat.getName() << " grade: " << bureaucrat.getGrade();
+	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 	return (os);
 }
