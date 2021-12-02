@@ -4,14 +4,23 @@
 # include <iostream>
 # include <string>
 
+# define HIGHEST_VALUE 1
+# define LOWEST_VALUE 150
+
 class Bureaucrat
 {
 	public:
-		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		Bureaucrat(const Bureaucrat& other);
 		~Bureaucrat();
 
-		const std::string	getName() const;
-		const int			getGrade() const;
+		Bureaucrat& operator=(const Bureaucrat& other);
+
+		std::string	getName() const;
+		int			getGrade() const;
+		void				incrGrade();
+		void				decrGrade();
+		void				checkGrade();
 
 	private:
 		const std::string	_name;
@@ -36,5 +45,7 @@ class Bureaucrat
 				}
 		};
 };
+
+std::ostream& operator<<(std::ostream& os, Bureaucrat const& bureaucrat);
 
 #endif
