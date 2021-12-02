@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:06:02 by grusso            #+#    #+#             */
-/*   Updated: 2021/12/02 17:37:08 by grusso           ###   ########.fr       */
+/*   Updated: 2021/12/02 18:46:03 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,20 @@ void				Bureaucrat::checkGrade()
 		throw Bureaucrat::GradeTooHighException();
 	else if (_grade > LOWEST_VALUE)
 		throw Bureaucrat::GradeTooLowException();
+}
+
+bool				Bureaucrat::signForm(Form& form)
+{
+	if (form.beSigned(*this))
+	{
+		std::cout << _name << " signs " << form.getName() << std::endl;
+		return (true);
+	}
+	else
+	{
+		std::cout << _name << " cannot signs " << form.getName() << " because his grade is not high enough" << std::endl;
+		return (false);
+	}
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other)
