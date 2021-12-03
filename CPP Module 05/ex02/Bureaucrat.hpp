@@ -25,6 +25,7 @@ class Bureaucrat
 		void				decrGrade();
 		void				checkGrade();
 		bool				signForm(Form& form);
+		bool				executeForm(Form const & form);
 
 	private:
 		const std::string	_name;

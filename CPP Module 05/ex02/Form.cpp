@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 17:15:57 by grusso            #+#    #+#             */
-/*   Updated: 2021/12/02 18:46:43 by grusso           ###   ########.fr       */
+/*   Updated: 2021/12/03 14:21:04 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ bool				Form::beSigned(const Bureaucrat &bureaucrat)
 		_signed = false;
 		return (false);
 	}
+}
+
+void				Form::checkExecutable(const Bureaucrat &executor) const
+{
+	if (!_signed || executor.getGrade() > _execGrade)
+		throw Form::FormCannotBeExecuted();
 }
 
 Form	&Form::operator=(const Form& other)

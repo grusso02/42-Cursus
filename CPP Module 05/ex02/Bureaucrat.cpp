@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:06:02 by grusso            #+#    #+#             */
-/*   Updated: 2021/12/02 18:46:03 by grusso           ###   ########.fr       */
+/*   Updated: 2021/12/03 14:24:36 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,21 @@ bool				Bureaucrat::signForm(Form& form)
 	else
 	{
 		std::cout << _name << " cannot signs " << form.getName() << " because his grade is not high enough" << std::endl;
+		return (false);
+	}
+}
+
+bool				Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executes " << form.getName() << std::endl;
+		return (true);
+	}
+	catch(std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
 		return (false);
 	}
 }

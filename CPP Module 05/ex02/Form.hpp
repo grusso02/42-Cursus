@@ -10,7 +10,7 @@ class Form
 	public:
 		Form(std::string _name, int signGrade, int execGrade);
 		Form(const Form& other);
-		~Form();
+		virtual ~Form();
 
 		Form& operator=(const Form& other);
 
@@ -20,8 +20,8 @@ class Form
 		int					getSignGrade() const;
 		void				checkGrade();
 		bool				beSigned(const Bureaucrat &bureaucrat);
-		virtual void		execute(Bureaucrat const & executor) const;
-		bool				checkExecutable(const Bureaucrat &executor);
+		virtual void		execute(Bureaucrat const & executor) const = 0;
+		void				checkExecutable(const Bureaucrat &executor) const;
 
 	private:
 		const std::string	_name;
@@ -47,6 +47,16 @@ class Form
 					return ("Grade is too low: the minimum allowed value is 150");
 				}
 		};
+
+		class FormCannotBeExecuted : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Form cannot be executed");
+				}
+		};
+
 };
 
 std::ostream& operator<<(std::ostream& os, Form const& form);

@@ -2,19 +2,21 @@
 # define SHRUBERRYCREATIONFORM_HPP
 
 # include "Form.hpp"
-
-# define NAME "ShruberryCreationForm"
-# define REQ_SIGN 145
-# define REQ_EXEC 137
+# include <fstream>
 
 class ShruberryCreationForm : public Form
 {
 	public:
 		ShruberryCreationForm(const std::string _target);
+		ShruberryCreationForm(const ShruberryCreationForm& other);
 		~ShruberryCreationForm();
+
+		ShruberryCreationForm& operator=(const ShruberryCreationForm& other);
+
+		const std::string	getTarget() const;
+		void				execute( const Bureaucrat &executor ) const;
 	private:
 		const std::string _target;
 };
-
 
 #endif
