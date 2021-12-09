@@ -6,16 +6,19 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 17:03:26 by grusso            #+#    #+#             */
-/*   Updated: 2021/12/09 17:23:06 by grusso           ###   ########.fr       */
+/*   Updated: 2021/12/09 17:37:14 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <list>
+#include <iomanip>
 #include "mutantstack.hpp"
 #include "mutantstack.cpp"
 
 int main()
 {
+	std::cout << "********Subject Test********" << std::endl;
 	MutantStack<int> mstack;
 
 	mstack.push(5);
@@ -44,5 +47,29 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack);
+
+	std::cout << "********USavoia Test********" << std::endl;
+	MutantStack<int> a;
+	std::list<int> b;
+
+	for (int i = 0; i < 10; i++)
+	{
+		a.push(i + 1);
+		b.push_back(i + 1);
+	}
+	
+	MutantStack<int>::iterator itStack = a.begin();
+	MutantStack<int>::iterator itendStack = a.end();
+	std::list<int>::iterator itList = b.begin();
+	std::list<int>::iterator itendList = b.end();
+
+	std::cout << "\033[34m" << "Size Stack:   " << a.size() << "    |   Size List:   " << b.size() << std::endl;
+	while ((itStack != itendStack) && (itList != itendList))
+	{
+		std::cout << std::setw(19) << *itStack << " | " << *itList << std::endl;
+		itStack++;
+		itList++;
+	}
+	std::cout << "\033[0m" << std::endl;
 	return 0;
 }
