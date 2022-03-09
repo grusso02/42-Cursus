@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:21:39 by gabriele          #+#    #+#             */
-/*   Updated: 2022/03/06 12:20:49 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/03/09 19:06:48 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,18 @@ namespace ft
 				}
 			}
 
-/* 			explicit vector (const vector& x) : _size(0), _capacity(0), _begin(nullptr), _alloc(x._alloc)
+			explicit vector(const vector& x)
+			:
+					_size(0),
+					_capacity(0),
+					_begin(nullptr),
+					_alloc(x._alloc)
 			{
 				_size = x._size;
 				_capacity = x._capacity;
 				_begin = _alloc.allocate(_capacity);
 				assign(x._begin, (x._begin + x._size));
-			} */
+			}
 
 			vector (const vector& x) : _size(0), _capacity(0), _begin(nullptr), _alloc(x._alloc) 
 			{
@@ -89,6 +94,85 @@ namespace ft
 					_alloc.deallocate(_begin, _capacity);
 				}
 			}
+
+			//Capacity
+			size_t		size() const { return (_size); }
+			size_type	max_size() const { return ( _alloc.max_size()); }
+			void		resize(size_type n, value_type val = value_type())
+			{
+				if (n >= _size)
+				{
+					if (n > _capacity)
+						reserve(n);
+					if (!val)
+						val = 0;
+					for (size_t i = _size; i < n; i++)
+						_begin[i] = val;
+				}
+				_size = n;
+			}
+			size_t		capacity() const { return (_capacity); }
+			bool		empty( return (_size == 0); )
+			void		reserve(size_type n)
+			{
+				if (n > _capacity && _begin != nullptr)
+				{
+					pointer tmp = NULL;
+					tmp = _alloc.allocate(n);
+					for (size_t i = 0; i < _size; i++)
+							_alloc.construct((tmp + i), _begin[i]);
+					_alloc.deallocate(_begin, _capacity);
+					_begin = _alloc.allocate(n);
+					for (size_t i = 0; i < _size; i++)
+							_alloc.construct((_begin + i), tmp[i]);
+					_capacity = n;
+					_alloc.deallocate(tmp, n);
+				}
+				else if (_begin == nullptr)
+				{
+					_capacity = n;
+					_begin = _alloc.allocate(_capacity);
+				}
+			}
+
+			//Element access
+			reference operator[](size_type pos) { this->_begin[pos]; }
+			const_reference operator[](size_type pos) const { this->_begin[pos]; }
+			reference at(size_type n)
+			{
+				if (n > _size)
+					//Lanciare eccezione
+				return (_begin[n]);	
+			}
+			const_reference at(size_type n) const
+			{
+				if (n > _size)
+					//Lanciare eccezione
+				return (_begin[n]);	
+			}
+			reference front() { return _begin[0]; }
+			const_reference front() const { return _begin[0]; }
+			reference back(){ return _begin[_size - 1]; }
+			const_reference back() const { return _begin[_size - 1]; }
+
+			//Modifiers
+			void assign(size_type n, const value_type& val)
+			{
+				if (n > _capacity)
+					reserve(n * 2);
+				_size = n;
+				for (size_t i = 0; i < _size; i++)
+					_begin[i] = val;
+			}
+			void push_back(const value_type& val)
+			{
+				if ((_size + 1) >= _capacity)
+					reserve((_size + 1) * 2);
+				_size++;
+				_alloc.construct((_begin + _size - 1), val);
+				_begin[_size - 1] = val;
+			}
+			void pop_back() { size--; }
 
 		private:
 			size_t			_size;
