@@ -1,6 +1,7 @@
+#include <vector>
 #include "vector.hpp"
 
 int main()
 {
-	ft::vector<int> a;
+	ft::vector<int> b;
 }

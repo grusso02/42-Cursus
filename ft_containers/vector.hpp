@@ -6,7 +6,7 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:21:39 by gabriele          #+#    #+#             */
-/*   Updated: 2022/02/27 19:56:20 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/03/06 12:20:49 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,13 @@ namespace ft
 			typedef typename allocator_type::size_type			size_type;
 
 			//Constructors
-			
 			explicit vector(const allocator_type& alloc = allocator_type())
 			: 
 					_size(0),
 					_capacity(0),
 					_begin(nullptr),
 					_alloc(alloc) 
-			{
-				std::cout <<  << std::endl;
-			}
+			{}
 			
 			explicit vector(size_type n, const value_type& val = value_type(),
 					const allocator_type& alloc = allocator_type())
@@ -67,11 +64,8 @@ namespace ft
 					for (size_t i = 0; i < n; i++)
 						_begin[i] = val;
 				}
-				std::cout << _size << std::endl;
-				std::cout << _capacity << std::endl;
-				for (size_t i = 0; i < n; i++)
-					std::cout << _begin[i] << std::endl;
 			}
+
 /* 			explicit vector (const vector& x) : _size(0), _capacity(0), _begin(nullptr), _alloc(x._alloc)
 			{
 				_size = x._size;
@@ -79,6 +73,15 @@ namespace ft
 				_begin = _alloc.allocate(_capacity);
 				assign(x._begin, (x._begin + x._size));
 			} */
+
+			vector (const vector& x) : _size(0), _capacity(0), _begin(nullptr), _alloc(x._alloc) 
+			{
+				_capacity = x._capacity;
+				_size = x._size;
+				_begin = _alloc.allocate(_capacity);
+				assign(x._begin, (x._begin + x._size));
+			}
+
 			~vector()
 			{
 				if (_begin != nullptr || _capacity != 0)
