@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:01:14 by gabriele          #+#    #+#             */
-/*   Updated: 2022/03/14 09:58:43 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/03/14 14:00:14 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 
 namespace ft
 {
+	/********************** enable_if **********************/
+	template<bool Cond, class T = void>
+	struct enable_if {};
+
+	template<class T>
+	struct enable_if<true, T> { typedef T type; };
+
 	/********************** is_integral **********************/
     template <bool value_type, typename T>
 	struct integral_constant
