@@ -22,8 +22,8 @@
 #include <utility>
 #include <stdexcept>
 #include <cstring>
-#include "../utils/iterator.hpp"
-#include "../utils/utils.hpp"
+#include "iterator.hpp"
+#include "utils.hpp"
 
 namespace ft
 {
@@ -79,7 +79,7 @@ namespace ft
 			}
 
 			template <class InputIterator>
-    		vector(InputIterator first, InputIterator last, const allocator_type& = allocator_type(),
+    		vector(InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type(),
 					typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type* = 0)
 				:
 					_size(0),
@@ -149,7 +149,7 @@ namespace ft
 			}
 
 			size_t		capacity() const { return (_capacity); }
-			bool		empty() return (_size == 0); )
+			bool		empty() const { return(_size == 0); }
 
 			void		reserve(size_type n)
 			{
@@ -174,8 +174,8 @@ namespace ft
 			}
 
 			/********************** Element access **********************/
-			reference operator[](size_type pos) { this->_begin[pos]; }
-			const_reference operator[](size_type pos) const { this->_begin[pos]; }
+			reference operator[](size_type pos) { return(this->_begin[pos]); }
+			const_reference operator[](size_type pos) const { return(this->_begin[pos]); }
 			reference at(size_type n)
 			{
 				if (n > _size)
@@ -232,7 +232,7 @@ namespace ft
 				_begin[_size - 1] = val;
 			}
 
-			void		pop_back() { size--; }
+			void		pop_back() { _size--; }
 
 			iterator	insert(iterator position, const value_type& val)
 			{

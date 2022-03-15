@@ -6,18 +6,25 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:04:25 by grusso            #+#    #+#             */
-/*   Updated: 2022/03/11 18:41:29 by grusso           ###   ########.fr       */
+/*   Updated: 2022/03/15 15:54:40 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITERATOR_HPP
 # define ITERATOR_HPP
 
+#include <cstddef>
 #include <iostream>
 
 namespace ft
 {
 	//Iterator Traits
+	struct input_iterator_tag  {};
+	struct output_iterator_tag {};
+	struct forward_iterator_tag       : public input_iterator_tag         {};
+	struct bidirectional_iterator_tag : public forward_iterator_tag       {};
+	struct random_access_iterator_tag : public bidirectional_iterator_tag {};
+
 	template<class Iterator>
 	struct iterator_traits
 	{
@@ -48,12 +55,6 @@ namespace ft
 		typedef Reference reference;
 		typedef Category  iterator_category;
 	};
-
-	struct input_iterator_tag  {};
-	struct output_iterator_tag {};
-	struct forward_iterator_tag       : public input_iterator_tag         {};
-	struct bidirectional_iterator_tag : public forward_iterator_tag       {};
-	struct random_access_iterator_tag : public bidirectional_iterator_tag {};
 
 	//Iterator
 	template <class Iterator>
@@ -174,7 +175,7 @@ namespace ft
 	};
 	
 	template <class Iterator1, class Iterator2>
-	const bool operator==(const reverse_iterator<Iterator1>& x, const reverse_iterator<Iterator2>& y)
+	bool operator==(const reverse_iterator<Iterator1>& x, const reverse_iterator<Iterator2>& y)
 	{
 		return x.base() == y.base();
 	}

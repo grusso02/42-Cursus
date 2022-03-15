@@ -3,7 +3,7 @@ NAME =		ft_containers
 CXX	=		clang++
 CXXFLAGS =	-Wall -Wextra -Werror -std=c++98
 
-SRCS =		$(shell find . -name '*.cpp')
+SRCS =		main.cpp
 OBJ =		$(SRCS:.cpp=.o)
 
 all : $(NAME)
