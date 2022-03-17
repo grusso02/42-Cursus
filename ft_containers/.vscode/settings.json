@@ -69,6 +69,7 @@
 		"__functional_03": "cpp",
 		"list": "cpp",
 		"queue": "cpp",
-		"set": "cpp"
+		"set": "cpp",
+		"memory_resource": "cpp"
 	}
 }
