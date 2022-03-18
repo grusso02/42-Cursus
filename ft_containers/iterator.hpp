@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:04:25 by grusso            #+#    #+#             */
-/*   Updated: 2022/03/15 15:54:40 by grusso           ###   ########.fr       */
+/*   Updated: 2022/03/18 11:28:11 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 namespace ft
 {
-	//Iterator Traits
+	/********************** Iterator Traits **********************/
 	struct input_iterator_tag  {};
 	struct output_iterator_tag {};
 	struct forward_iterator_tag       : public input_iterator_tag         {};
@@ -56,7 +56,7 @@ namespace ft
 		typedef Category  iterator_category;
 	};
 
-	//Iterator
+	/********************** Iterator **********************/
 	template <class Iterator>
 	class base_iterator
 		: public iterator<typename iterator_traits<Iterator>::iterator_category,
@@ -139,7 +139,7 @@ namespace ft
 		return __x.base() - __y.base();
 	}
 
-	//Reverse Iterator
+	/********************** Reverse Iterator **********************/
 	template <class Iterator>
 	class reverse_iterator
 		: public iterator<typename iterator_traits<Iterator>::iterator_category,
@@ -221,6 +221,97 @@ namespace ft
 	{
 		return reverse_iterator<_Iter>(__x.base() - __n);
 	}
+
+	/********************** Map Iterator **********************/
+	template <class _TreeIterator>
+	class __map_iterator
+	{
+		typedef typename _TreeIterator::_NodeTypes					_NodeTypes;
+    	typedef typename _TreeIterator::__pointer_traits			__pointer_traits;
+
+    	_TreeIterator __i_;
+
+		public:
+			typedef bidirectional_iterator_tag						iterator_category;
+			typedef typename _NodeTypes::__map_value_type			value_type;
+			typedef typename _TreeIterator::difference_type			difference_type;
+			typedef value_type&										reference;
+			typedef typename _NodeTypes::__map_value_type_pointer	pointer;
+		
+		__map_iterator() {}
+		__map_iterator(_TreeIterator __i) : __i_(__i) {}
+
+		reference operator*() const { return __i_->__get_value(); }
+		pointer operator->() const { return pointer_traits<pointer>::pointer_to(__i_->__get_value()); }
+		__map_iterator& operator++() { ++__i_; return *this; }
+		__map_iterator operator++(int)
+		{
+			__map_iterator __t(*this);
+			++(*this);
+			return __t;
+		}
+
+		__map_iterator& operator--() {--__i_; return *this;}
+		__map_iterator operator--(int)
+		{
+			__map_iterator __t(*this);
+			--(*this);
+			return __t;
+		}
+
+		friend bool operator==(const __map_iterator& __x, const __map_iterator& __y) { return __x.__i_ == __y.__i_; }
+		friend bool operator!=(const __map_iterator& __x, const __map_iterator& __y) { return __x.__i_ != __y.__i_; }
+
+		template <class, class, class, class> friend class map;
+		template <class, class, class, class> friend class multimap;
+		template <class> friend class __map_const_iterator;
+	}
+
+	/********************** Map Const Iterator **********************/
+	template <class _TreeIterator>
+	class __map_const_iterator
+	{
+		typedef typename _TreeIterator::_NodeTypes                   _NodeTypes;
+		typedef typename _TreeIterator::__pointer_traits             __pointer_traits;
+
+		_TreeIterator __i_;
+
+		public:
+			typedef bidirectional_iterator_tag                           iterator_category;
+			typedef typename _NodeTypes::__map_value_type                value_type;
+			typedef typename _TreeIterator::difference_type              difference_type;
+			typedef const value_type&                                    reference;
+			typedef typename _NodeTypes::__const_map_value_type_pointer  pointer;
+
+		__map_const_iterator() {}	
+		__map_const_iterator(_TreeIterator __i) : __i_(__i) {}
+		__map_const_iterator(__map_iterator<typename _TreeIterator::__non_const_iterator> __i) : __i_(__i.__i_) {}
+
+		reference operator*() const {return __i_->__get_value();}
+		pointer operator->() const {return pointer_traits<pointer>::pointer_to(__i_->__get_value());}
+		__map_const_iterator& operator++() {++__i_; return *this;}
+		__map_const_iterator operator++(int)
+		{
+			__map_const_iterator __t(*this);
+			++(*this);
+			return __t;
+		}
+		__map_const_iterator& operator--() {--__i_; return *this;}
+		__map_const_iterator operator--(int)
+		{
+			__map_const_iterator __t(*this);
+			--(*this);
+			return __t;
+		}
+
+		friend bool operator==(const __map_const_iterator& __x, const __map_const_iterator& __y) { return __x.__i_ == __y.__i_; }
+		friend bool operator!=(const __map_const_iterator& __x, const __map_const_iterator& __y) { return __x.__i_ != __y.__i_; }
+
+		template <class, class, class, class> friend class map;
+		template <class, class, class, class> friend class multimap;
+		template <class, class, class> friend class __tree_const_iterator;
+	};
+
 } // namespace ft
 
 #endif

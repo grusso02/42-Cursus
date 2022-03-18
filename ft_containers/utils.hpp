@@ -6,7 +6,7 @@
 /*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:01:14 by gabriele          #+#    #+#             */
-/*   Updated: 2022/03/15 15:42:24 by grusso           ###   ########.fr       */
+/*   Updated: 2022/03/18 09:15:40 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,72 @@ namespace ft
 			first2++;
 		}
 		return (first2 != last2);
+	}
+
+	/********************** pair **********************/
+	template <class T1, class T2>
+	struct pair
+	{
+		typedef T1 first_type;
+		typedef T2 second_type;
+
+		T1 first;
+		T2 second;
+
+		//Constructor
+		pair() : first(), second() {}
+		pair(T1 const& __t1, T2 const& __t2) : first(__t1), second(__t2) {}
+
+		//operator=
+		pair& operator=(pair const& __p)
+		{
+			first = __p.first;
+			second = __p.second;
+			return *this;
+		}
+	};
+
+	template <class T1, class T2>
+	bool operator==(const pair<T1,T2>& lhs, const pair<T1,T2>& rhs)
+	{
+		return lhs.first==rhs.first && lhs.second==rhs.second;
+	}
+
+	template <class T1, class T2>
+	bool operator!=(const pair<T1,T2>& lhs, const pair<T1,T2>& rhs)
+	{
+		return !(lhs==rhs);
+	}
+
+	template <class T1, class T2>
+	bool operator< (const pair<T1,T2>& lhs, const pair<T1,T2>& rhs)
+	{
+		return lhs.first<rhs.first || (!(rhs.first<lhs.first) && lhs.second<rhs.second);
+	}
+
+	template <class T1, class T2>
+	bool operator<=(const pair<T1,T2>& lhs, const pair<T1,T2>& rhs)
+	{
+		return !(rhs<lhs);
+	}
+
+	template <class T1, class T2>
+	bool operator> (const pair<T1,T2>& lhs, const pair<T1,T2>& rhs)
+	{
+		return rhs<lhs;
+	}
+
+	template <class T1, class T2>
+	bool operator>=(const pair<T1,T2>& lhs, const pair<T1,T2>& rhs)
+	{
+		return !(lhs<rhs);
+	}
+
+	//make_pair
+	template <class T1, class T2>
+	pair<T1,T2> make_pair(T1 x, T2 y)
+	{
+		return (pair<T1,T2>(x, y));
 	}
 
 } // namespace ft
