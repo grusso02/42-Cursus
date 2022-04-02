@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 10:26:53 by grusso            #+#    #+#             */
-/*   Updated: 2022/03/17 12:08:31 by grusso           ###   ########.fr       */
+/*   Updated: 2022/04/02 17:05:57 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_HPP
-# define STACK_HPP
+#pragma once
 
 #include "vector.hpp"
 
@@ -94,5 +93,3 @@ namespace ft
 	}
 
 } // namespace ft
-
-#endif

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:01:14 by gabriele          #+#    #+#             */
-/*   Updated: 2022/03/18 09:15:40 by grusso           ###   ########.fr       */
+/*   Updated: 2022/04/02 17:05:49 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_HPP
-# define UTILS_HPP
+#pragma once
 
 # include <cstddef>
 
@@ -148,6 +147,3 @@ namespace ft
 	}
 
 } // namespace ft
-
-
-#endif

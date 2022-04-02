@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_HPP
-# define VECTOR_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -409,5 +408,3 @@ namespace ft
 	}
 
 } // namespace ft
-
-#endif

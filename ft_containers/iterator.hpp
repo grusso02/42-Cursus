@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   iterator.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:04:25 by grusso            #+#    #+#             */
-/*   Updated: 2022/03/24 15:18:27 by grusso           ###   ########.fr       */
+/*   Updated: 2022/04/02 17:06:10 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITERATOR_HPP
-# define ITERATOR_HPP
+#pragma once
 
 #include <cstddef>
 #include <iostream>
@@ -223,5 +222,3 @@ namespace ft
 	}
 
 } // namespace ft
-
-#endif
