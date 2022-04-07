@@ -6,7 +6,7 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:15:40 by grusso            #+#    #+#             */
-/*   Updated: 2022/04/02 17:06:24 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/04/05 16:18:20 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ struct Node
 	~Node() {}
 };
 
-template <class _Tp, class _Compare, class _Allocator>
+template < class Value, class Compare = std::less<Value>, class Alloc = std::allocator<Value> >
 class _tree
 {
-	
+	public:
+		typedef _Tp					value_type;
+		typedef _Compare			value_compare;
+		typedef _Allocator			allocator_type;
 };
