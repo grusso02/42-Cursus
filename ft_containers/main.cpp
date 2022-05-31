@@ -6,18 +6,17 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:47:58 by grusso            #+#    #+#             */
-/*   Updated: 2022/04/05 16:26:24 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/05/04 19:37:42 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <map>
 #include <iostream>
 #include <__tree>
-#include "tree.hpp"
 
 int main()
 {
 	std::pair<int, char> PAIR1;
-
+	std::less<int>{}(5, 5.6);
 
 }

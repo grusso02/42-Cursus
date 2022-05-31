@@ -6,7 +6,7 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:01:14 by gabriele          #+#    #+#             */
-/*   Updated: 2022/04/05 16:27:38 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/05/04 19:40:01 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,5 +151,21 @@ namespace ft
 	{
 		return (pair<T1,T2>(x, y));
 	}
+
+	template <class _Arg1, class _Arg2, class _Result>
+	struct binary_function
+	{
+		typedef _Arg1   first_argument_type;
+		typedef _Arg2   second_argument_type;
+		typedef _Result result_type;
+	};
+
+	template<typename T>
+	struct less : public ft::binary_function<T, T, bool>
+	{
+		bool operator()(const T& x, const T& y) const {
+			return x < y;
+		}
+	};
 
 } // namespace ft

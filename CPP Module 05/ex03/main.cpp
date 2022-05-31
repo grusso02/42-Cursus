@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:06:24 by grusso            #+#    #+#             */
-/*   Updated: 2021/12/03 16:54:19 by grusso           ###   ########.fr       */
+/*   Updated: 2022/05/31 21:51:20 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 	Intern someRandomIntern;
 	Form* rrf;
 
-	rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+	rrf = someRandomIntern.makeForm("shruberry creation", "Bender");
 	delete rrf;
 
 	return 0;
