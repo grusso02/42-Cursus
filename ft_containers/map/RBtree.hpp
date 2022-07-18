@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RBtree.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grusso <grusso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:15:40 by grusso            #+#    #+#             */
-/*   Updated: 2022/05/10 14:36:43 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/07/18 14:46:12 by grusso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ class RBtree
 		}
 
 	private:
-		node*		_root;
-		size_type	_size;
+		node*			_root;
+		size_type		_size;
+		allocator_type _allocator;
+
 };

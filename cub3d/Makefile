@@ -7,6 +7,7 @@ FLAGS=-Wall -Wextra -Werror
 LIB=-L./libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
 
 SRC_PATH=./src/
+
 PARSING=parsing/check_args.c \
 	parsing/read_map.c \
 	parsing/get_cub_data.c \
@@ -15,6 +16,7 @@ PARSING=parsing/check_args.c \
 	parsing/get_layout.c \
 	parsing/check_layout.c \
 	parsing/get_textures.c
+
 UTILS=utils/handle_errors.c \
 	utils/free_functions.c \
 	utils/init.c \
@@ -23,18 +25,22 @@ UTILS=utils/handle_errors.c \
 	utils/set_position.c \
 	utils/clear.c \
 	utils/utils.c
+
 ENGINE=engine/camera.c \
 	engine/digital_differential_analyser.c \
 	engine/player.c \
 	engine/raycasting.c \
 	engine/sprite.c
+
 EVENT=event_manager/key_event_handler.c \
 	event_manager/main_loop.c \
 	event_manager/window_destroy.c
+
 RENDER=render/draw.c \
 	render/texture.c \
 	render/sprite.c \
 	render/bitmap.c
+
 SRCS=$(PARSING) \
 	$(UTILS) \
 	$(ENGINE) \
@@ -45,7 +51,6 @@ SRCS=$(PARSING) \
 SRC=$(addprefix $(SRC_PATH), $(SRCS))
 
 OBJ=$(SRC:.c=.o)
-
 
 all: $(NAME)
 
