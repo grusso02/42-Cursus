@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RBtree_iterators.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 18:47:58 by grusso            #+#    #+#             */
-/*   Updated: 2022/07/22 11:55:29 by gabriele         ###   ########.fr       */
+/*   Created: 2022/07/22 11:47:07 by gabriele          #+#    #+#             */
+/*   Updated: 2022/07/22 11:53:11 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <map>
-#include <vector>
-#include <iostream>
-#include <__tree>
+#pragma once
 
-int main()
+#include "../utils.hpp"
+#include "../iterator.hpp"
+#include "./RBtree_utils.hpp"
+
+namespace ft
 {
-	std::pair<int, char> PAIR1;
-	std::less<int>{}(5, 5.6);
-
-}
+	template <class T, class Compare = ft::less<T>, bool enableConstConstructor = false >
+	class rbt_iterator : public ft::iterator<ft::bidirectional_iterator_tag, T>
+	{
+		
+	};
+	
+} // namespace ft
