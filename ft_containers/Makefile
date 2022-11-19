@@ -21,11 +21,20 @@ $(NAME_FT): $(OBJ_FT)
 $(NAME_STL): $(OBJ_STL)
 	@$(CXX) $(CXXLAGS) -o $(NAME_STL) $(OBJ_STL)
 
+diff:
+	diff mySTL.txt originalSTL.txt
+
+clone:
+	git clone https://github.com/mli42/containers_test.git
+
+test:
+	cd containers_test && ./do.sh
+
 clean:
 	@rm -rf $(OBJ_FT) $(OBJ_STL)
 
 fclean: clean
-	@rm -rf $(NAME_FT) $(NAME_STL)
+	@rm -rf $(NAME_FT) $(NAME_STL) containers_test
 
 re : fclean all
 
