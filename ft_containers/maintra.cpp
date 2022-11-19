@@ -7,9 +7,9 @@
 	#include <vector>
 	namespace ft = std;
 #else
-	#include <map.hpp>
-	#include <stack.hpp>
-	#include <vector.hpp>
+	#include "src/vector.hpp"
+	#include "src/stack.hpp"
+	#include "src/map.hpp"
 #endif
 
 #include <stdlib.h>
@@ -33,15 +33,15 @@ public:
 	MutantStack(const MutantStack<T>& src) { *this = src; }
 	MutantStack<T>& operator=(const MutantStack<T>& rhs) 
 	{
-		this->c = rhs.c;
+		this->_c = rhs._c;
 		return *this;
 	}
 	~MutantStack() {}
 
 	typedef typename ft::stack<T>::container_type::iterator iterator;
 
-	iterator begin() { return this->c.begin(); }
-	iterator end() { return this->c.end(); }
+	iterator begin() { return this->_c.begin(); }
+	iterator end() { return this->_c.end(); }
 };
 
 int main(int argc, char** argv) {

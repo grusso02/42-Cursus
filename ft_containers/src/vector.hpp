@@ -224,11 +224,14 @@ namespace ft
 
 			void		push_back(const value_type& val)
 			{
-				if ((_size + 1) >= _capacity)
+/* 				if ((_size + 1) >= _capacity)
 					reserve((_size + 1) * 2);
 				_size++;
 				_alloc.construct((_begin + _size - 1), val);
-				_begin[_size - 1] = val;
+				_begin[_size - 1] = val; */
+				if (this->_size + 1 > this->_capacity)
+                	reserve(this->_capacity < 2 ? 2 : this->_capacity * 2);
+            	this->_alloc.construct(this->_begin + this->_size++, val);
 			}
 
 			void		pop_back() { _size--; }

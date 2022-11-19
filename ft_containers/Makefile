@@ -21,6 +21,9 @@ $(NAME_FT): $(OBJ_FT)
 $(NAME_STL): $(OBJ_STL)
 	@$(CXX) $(CXXLAGS) -o $(NAME_STL) $(OBJ_STL)
 
+run:
+	./ft_containers && ./stl_containers
+
 diff:
 	diff mySTL.txt originalSTL.txt
 
