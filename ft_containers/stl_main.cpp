@@ -6,30 +6,29 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 12:45:38 by gabriele          #+#    #+#             */
-/*   Updated: 2022/11/19 12:56:53 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/11/19 14:56:12 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map"
-#include "vector"
-#include "stack"
-//#include "set.hpp"
+#include <map>
+#include <vector>
+#include <stack>
+//#include <set>
+#include <iostream>
 #include <fstream>
 #include <sstream>
 
-#define namespace	std
-
 int main()
 {
-	std::ofstream fileout ("mySTL.txt");
+	std::ofstream fileout ("originalSTL.txt");
 	fileout << "************** TESTING VECTOR **************\n" << std::endl;
 
-	namespace::vector<int> vec1(5,100);
+	std::vector<int> vec1(5,100);
 	int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	namespace::vector<int> vec2(arr, arr+10);
+	std::vector<int> vec2(arr, arr+10);
 
 	fileout << "Printing content: \n";
-	namespace::vector<int>::iterator it1;
+	std::vector<int>::iterator it1;
 	fileout << "size : " << vec1.size() << std::endl;
 	fileout << "max_size : " << vec1.max_size() << std::endl;
 
@@ -44,7 +43,7 @@ int main()
 	
 	fileout << "\n\nTESTING COPY COSTRUCTOR\n" << std::endl;
 
-	namespace::vector<int> vec3(vec2);
+	std::vector<int> vec3(vec2);
 	fileout << "Printing content: \n";
 	fileout << "size : " << vec3.size() << std::endl;
 	fileout << "max_size : " << vec3.max_size() << std::endl;
@@ -99,7 +98,7 @@ int main()
 
 
 	fileout << "\n\n************** TESTING STACK **************\n" << std::endl;
-	namespace::stack<int, namespace::vector<int> > stack1 (vec2);
+	std::stack<int, std::vector<int> > stack1 (vec2);
 
 	fileout << "Printing content: \n";
 	fileout << "size : " << stack1.size() << std::endl;
@@ -108,23 +107,24 @@ int main()
 		fileout << "[stack1] : " << stack1.top() << std::endl;
 		stack1.pop();
 	}
-	
+
 	fileout << "\n\n************** TESTING MAP **************\n" << std::endl;
-	namespace::map<int, std::string> map1;
-	map1.insert(namespace::pair<int, std::string>(1, "a"));
-	map1.insert(namespace::pair<int, std::string>(2, "b"));
-	map1.insert(namespace::pair<int, std::string>(3, "c"));
-	map1.insert(namespace::pair<int, std::string>(4, "d"));
-	map1.insert(namespace::pair<int, std::string>(5, "e"));
-	map1.insert(namespace::pair<int, std::string>(6, "f"));
-	map1.insert(namespace::pair<int, std::string>(7, "g"));
+	std::map<int, std::string> map1;
+	map1.insert(std::pair<int, std::string>(1, "a"));
+	map1.insert(std::pair<int, std::string>(2, "b"));
+	map1.insert(std::pair<int, std::string>(3, "c"));
+	map1.insert(std::pair<int, std::string>(4, "d"));
+	map1.insert(std::pair<int, std::string>(5, "e"));
+	map1.insert(std::pair<int, std::string>(6, "f"));
+	map1.insert(std::pair<int, std::string>(7, "g"));
 	fileout << "Printing content: \n";
 	fileout << "size : " << map1.size() << std::endl;
 	fileout << "max_size : " << map1.max_size() << std::endl;
-	namespace::map<int, std::string>::iterator it;
+	std::map<int, std::string>::iterator it;
 	for(it = map1.begin(); it != map1.end(); ++it)
 		fileout << "[map1] key = " << it->first << "  value = " << it->second << std::endl;
-	
+
+
 	fileout << "\n\n TESTING OPERATOR[] \n" << std::endl;
 	map1[6] = "changed";
 	map1[2] = "changed";
@@ -134,7 +134,7 @@ int main()
 
 
 	fileout << "\n\n TESTING COPY COSTRUCTOR \n" << std::endl;
-	namespace::map<int, std::string> map2(map1);
+	std::map<int, std::string> map2(map1);
 	fileout << "Printing content: \n";
 	fileout << "size : " << map2.size() << std::endl;
 	fileout << "max_size : " << map2.max_size() << std::endl;
@@ -150,13 +150,13 @@ int main()
 		fileout << "[map1] key = " << it->first << "  value = " << it->second << std::endl;
 
 	fileout << "\n\n TESTING SWAP\n" << std::endl;
-	namespace::map<int, std::string> map3(map2);
+	std::map<int, std::string> map3(map2);
 	map3.find(5)->second = "changed with find()";
 	map3.lower_bound(9)->second = "changed with lower()";
 	map3.swap(map2);
 	fileout << "Printing content: \n";
 	it = map2.begin();
-	namespace::map<int, std::string>::iterator it2;
+	std::map<int, std::string>::iterator it2;
 	for(it = map2.begin(); it != map2.end(); ++it)
 		fileout << "[map2] key = " << it->first << "  value = " << it->second << std::endl;
 	fileout << std::endl;
@@ -164,9 +164,8 @@ int main()
 		fileout << "[map3] key = " << it2->first << "  value = " << it2->second << std::endl;
 
 	
-
 /* 	fileout << "\n\n************** TESTING SET **************\n" << std::endl;
-	namespace::set<int> set1;
+	std::set<int> set1;
 	set1.insert(100);
 	set1.insert(200);
 	set1.insert(300);
@@ -177,13 +176,12 @@ int main()
 	fileout << "Printing content: \n";
 	fileout << "size : " << set1.size() << std::endl;
 	fileout << "max_size : " << set1.max_size() << std::endl;
-	namespace::set<int>::iterator ite;
+	std::set<int>::iterator ite;
 	for(ite = set1.begin(); ite != set1.end(); ++ite)
 		fileout << "[set1] = " << *ite << std::endl;
 
-
 	fileout << "\n\n TESTING COPY COSTRUCTOR \n" << std::endl;
-	namespace::set<int> set2(set1);
+	std::set<int> set2(set1);
 	fileout << "Printing content: \n";
 	fileout << "size : " << set2.size() << std::endl;
 	fileout << "max_size : " << set2.max_size() << std::endl;
@@ -199,7 +197,7 @@ int main()
 		fileout << "[set1] = " << *ite << std::endl;
 
 	fileout << "\n\n TESTING SWAP\n" << std::endl;
-	namespace::set<int> set3;
+	std::set<int> set3;
 	set3.insert(1);
 	set3.insert(2);
 	set3.insert(3);
@@ -217,5 +215,5 @@ int main()
 	fileout << std::endl;
 	for(ite = set3.begin(); ite != set3.end(); ++ite)
 		fileout << "[set3] = " << *ite << std::endl; */
-	
+
 }
