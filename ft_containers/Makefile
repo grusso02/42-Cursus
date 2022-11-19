@@ -34,7 +34,7 @@ clean:
 	@rm -rf $(OBJ_FT) $(OBJ_STL)
 
 fclean: clean
-	@rm -rf $(NAME_FT) $(NAME_STL) containers_test
+	@rm -rf $(NAME_FT) $(NAME_STL) mySTL.txt originalSTL.txt containers_test
 
 re : fclean all
 

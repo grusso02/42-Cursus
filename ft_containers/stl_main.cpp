@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   std_main.cpp                                       :+:      :+:    :+:   */
+/*   stl_main.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 12:45:38 by gabriele          #+#    #+#             */
-/*   Updated: 2022/11/19 14:56:12 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/11/19 15:32:37 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int main()
 		stack1.pop();
 	}
 
-	fileout << "\n\n************** TESTING MAP **************\n" << std::endl;
+/* 	fileout << "\n\n************** TESTING MAP **************\n" << std::endl;
 	std::map<int, std::string> map1;
 	map1.insert(std::pair<int, std::string>(1, "a"));
 	map1.insert(std::pair<int, std::string>(2, "b"));
@@ -161,7 +161,7 @@ int main()
 		fileout << "[map2] key = " << it->first << "  value = " << it->second << std::endl;
 	fileout << std::endl;
 	for(it2 = map3.begin(); it2 != map3.end(); ++it2)	
-		fileout << "[map3] key = " << it2->first << "  value = " << it2->second << std::endl;
+		fileout << "[map3] key = " << it2->first << "  value = " << it2->second << std::endl; */
 
 	
 /* 	fileout << "\n\n************** TESTING SET **************\n" << std::endl;

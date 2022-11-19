@@ -6,7 +6,7 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 12:45:43 by gabriele          #+#    #+#             */
-/*   Updated: 2022/11/19 14:55:13 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/11/19 15:32:25 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int main()
 		stack1.pop();
 	}
 	
-	fileout << "\n\n************** TESTING MAP **************\n" << std::endl;
+	/* fileout << "\n\n************** TESTING MAP **************\n" << std::endl;
 	ft::map<int, std::string> map1;
 	map1.insert(ft::pair<int, std::string>(1, "a"));
 	map1.insert(ft::pair<int, std::string>(2, "b"));
@@ -159,7 +159,7 @@ int main()
 		fileout << "[map2] key = " << it->first << "  value = " << it->second << std::endl;
 	fileout << std::endl;
 	for(it2 = map3.begin(); it2 != map3.end(); ++it2)	
-		fileout << "[map3] key = " << it2->first << "  value = " << it2->second << std::endl;
+		fileout << "[map3] key = " << it2->first << "  value = " << it2->second << std::endl; */
 
 	
 

@@ -6,7 +6,7 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:01:14 by gabriele          #+#    #+#             */
-/*   Updated: 2022/05/04 19:40:01 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/11/19 15:37:58 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ namespace ft
 			return *this;
 		}
 
-	    swap(pair& __p)
+	    void swap(pair& __p)
 		{
 			std::swap(first,  __p.first);
 			std::swap(second, __p.second);
