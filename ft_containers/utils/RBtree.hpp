@@ -6,15 +6,15 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:15:40 by grusso            #+#    #+#             */
-/*   Updated: 2022/07/19 11:33:24 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:57:54 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include "../utils.hpp"
-#include "./RBtree_utils.hpp"
+#include "utils.hpp"
+#include "RBtree_utils.hpp"
 
 namespace ft
 {
