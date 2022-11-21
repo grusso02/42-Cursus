@@ -6,7 +6,7 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 11:47:07 by gabriele          #+#    #+#             */
-/*   Updated: 2022/11/19 17:31:03 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/11/21 10:41:48 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@ namespace ft
 {
 	//--------------------------------------------MAP ITERATOR--------------------------------------------------//
 	template<typename tree>
-	class map_iterator
-	: public ft::iterator<ft::bidirectional_iterator_tag, typename tree::node_pointer>
+	class map_iterator : public ft::iterator<ft::bidirectional_iterator_tag, typename tree::node_pointer>
 	{
-
 		public:
-
 			typedef typename tree::node_pointer                     node_pointer;
 			typedef typename tree::node_reference                   node_reference;
 			typedef typename tree::value_type&                      pair_ref;
@@ -34,19 +31,15 @@ namespace ft
 
 		protected:
 			node_pointer                                                   current;
-		
 
 		public:
 		 //----------------------------------------CONSTRUCTORS-------------------------------------------------//
 		
 			map_iterator() : current(NULL){}; // default
-			
-			map_iterator(const node_pointer __i) {this->current = __i;}; // with node pointer
-			
+			map_iterator(const node_pointer __i) {this->current = __i;}; // with node pointer	
 			map_iterator(const map_iterator& __i) {this->current = __i.base();}; // copy
-			
 			const  node_pointer& base() const { return current; };
-			
+
 			map_iterator& operator=(const  map_iterator& u) { current = u.base(); return *this; };
 			
 		//----------------------------------------OPERATORS OVERLOADING-----------------------------------------//
@@ -99,34 +92,25 @@ namespace ft
 	/******************************** CONST MAP ITERATOR ********************************/
 	
 	template<typename tree>
-	class const_map_iterator
-	: public ft::iterator<ft::bidirectional_iterator_tag, typename tree::const_node_pointer>
+	class const_map_iterator : public ft::iterator<ft::bidirectional_iterator_tag, typename tree::const_node_pointer>
 	{
-
 		public:
-
 			typedef typename tree::const_node_pointer               node_pointer;
 			typedef typename tree::const_node_reference             node_reference;
 			typedef const typename tree::value_type&                const_pair_ref;
 			typedef const typename tree::value_type*                const_pair_ptr;
 
-		protected:
-		
-			node_pointer                                                   current;
+		protected:	
+			node_pointer											current;
 
 		public:
 		//----------------------------------------CONSTRUCTORS-------------------------------------------------//
 		
 			const_map_iterator() : current(NULL){}; //default
-			
 			const_map_iterator(const node_pointer __i) {this->current = __i;}; // with node pointer
-
 			const_map_iterator(const const_map_iterator& __i) {this->current = __i.base();}; // copy
-
 			const_map_iterator(const map_iterator<tree> & __i) {this->current = __i.base();}; //copy with map classic map iterator
-			
 			const  node_pointer& base() const { return current; };
-			
 			const_map_iterator& operator=(const  const_map_iterator& u) { current = u.base(); return *this; };
 			
 		//----------------------------------------OPERATORS OVERLOADING----------------------------------------//
@@ -192,11 +176,9 @@ namespace ft
 	/******************************** MAP REVERSE ITERATOR ********************************/
 	
 	template<typename _iterator>
-	class map_reverse_iterator
-	: public _iterator
+	class map_reverse_iterator : public _iterator
 	{
 		public:
-		
 			typedef _iterator					                      	 	 iterator_type;
 			typedef typename iterator_type::node_pointer                     node_pointer;
 			typedef typename iterator_type::node_reference                   node_reference;
@@ -208,13 +190,9 @@ namespace ft
 		//----------------------------------------CONSTRUCTORS------------------------------------------------//
 		
 			map_reverse_iterator() : _iterator(NULL) {}; // default constructor
-
 	 		map_reverse_iterator(const node_pointer& __x) : _iterator(__x) {}; // with node pointer
-
       		map_reverse_iterator(iterator_type __x) : _iterator(__x) { this->current = prev_node(this->current); }; // with iterator
-
       		map_reverse_iterator(const map_reverse_iterator& __x)  : _iterator(__x.base()) {}; // copy
-			  
       		map_reverse_iterator& operator=(const map_reverse_iterator& __x) {  this->current = (__x.current); return *this; };
 	
       		iterator_type base() const
@@ -272,11 +250,9 @@ namespace ft
 	/******************************** MAP CONST REVERSE ITERATOR ********************************/
 	
 	template<typename _iterator>
-	class const_map_reverse_iterator
-	: public _iterator
+	class const_map_reverse_iterator : public _iterator
 	{
 		public:
-
 			typedef _iterator					                      	 	iterator_type;
 			typedef typename iterator_type::node_pointer               		const_node_pointer;
 			typedef typename iterator_type::node_reference             		const_node_reference;
@@ -284,19 +260,13 @@ namespace ft
 			typedef typename iterator_type::value_type*                      const_pair_ptr;
 			typedef ptrdiff_t        									 	 difference_type;
 
-		public:
 		//----------------------------------------CONSTRUCTORS-------------------------------------------------//
 		
 			const_map_reverse_iterator() : _iterator(NULL) {}; // default
-			
 	 		const_map_reverse_iterator(const const_node_pointer& __x) : _iterator(__x) {}; // with node pointer
-
       		const_map_reverse_iterator(iterator_type __x) : _iterator(__x) {}; // with iterator 
-
       		const_map_reverse_iterator(const const_map_reverse_iterator& __x)  : _iterator(__x.base()) {}; // copy
-			  
       		const_map_reverse_iterator& operator=(const const_map_reverse_iterator& __x) {  this->current = (__x.current); return *this; };
-			
       		iterator_type base() const
 			{
 				return _iterator(next_node(this->current));

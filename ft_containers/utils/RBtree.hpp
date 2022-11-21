@@ -6,7 +6,7 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:15:40 by grusso            #+#    #+#             */
-/*   Updated: 2022/11/19 16:55:27 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/11/21 10:44:06 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,14 @@ namespace ft
 					end->left = end;
 				};
 			
-			~tree(){
-				
+			~tree()
+			{
 				for(size_t i = 0; i < this->size; i++)
 				{
 					_alloc.destroy((node_vec[i]));
 					_alloc.deallocate(node_vec[i], 1);
 				}
 				_alloc.deallocate(end, 1);
-				
 			}
 			
 			node_pointer	get_root() const { return this->root ;}
@@ -163,7 +162,6 @@ namespace ft
 				end->right = end;
 				end->left = end;
 				end->parent = NULL;
-				
 			}
 
 			void swap(tree& x)

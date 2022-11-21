@@ -6,7 +6,7 @@
 /*   By: gabriele <gabriele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:15:29 by grusso            #+#    #+#             */
-/*   Updated: 2022/11/19 17:03:57 by gabriele         ###   ########.fr       */
+/*   Updated: 2022/11/21 10:48:22 by gabriele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,25 @@ namespace ft
         	typedef typename allocator_type::size_type       				size_type;
         	typedef typename allocator_type::difference_type 				difference_type;
 
-     	class value_compare
-     	: public std::binary_function<value_type, value_type, bool>
+     	class value_compare : public std::binary_function<value_type, value_type, bool>
      	{
      		friend class map<Key, T, key_compare, Allocator>;
      	 	protected:
-     		key_compare 				comp;
+     			key_compare			comp;
 
      		value_compare(key_compare __c) : comp(__c) {}
 
     		public:
      		bool operator()(const value_type& __x, const value_type& __y) const
-     		{ return comp(__x.first, __y.first); }
-       };
+     		{
+				return comp(__x.first, __y.first);
+			}
+		};
 		
 		public:
 			
 			typedef ft::tree<value_type, key_compare, allocator_type>			_tree; //--> definiton of TREE
-			
+
         	typedef typename ft::map_iterator<_tree>							iterator;
 			typedef typename ft::const_map_iterator<_tree>						const_iterator;
 			typedef typename ft::map_reverse_iterator<iterator>					reverse_iterator;
@@ -64,16 +65,16 @@ namespace ft
 
         private:
 		
-			allocator_type											_alloc;
-        	key_compare                                  			compare;
-			_tree   												tree;
+			allocator_type		_alloc;
+        	key_compare			compare;
+			_tree				tree;
 
 		public:
 		
 		//----------------------------------------CONSTRUCTORS , DESTRUCTOR--------------------------------------------------------------------------//
 		
 			explicit map (const key_compare& comp = key_compare(), const allocator_type& alloc = allocator_type()) :  _alloc(alloc), compare(comp) {};
-			
+
 			template <class InputIterator>
   			map (InputIterator first, InputIterator last,
 			  	const key_compare& comp = key_compare(), 
@@ -258,44 +259,37 @@ namespace ft
 	//----------------------------------------RELATIONAL OPERATORS-------------------------------------------------//
 
 	template <class Key, class T, class Compare, class Allocator>
-	bool
-	operator< (const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
+	bool operator< (const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
 	{
     	return ft::lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
 	}
 
 	template <class Key, class T, class Compare, class Allocator>
-	bool
-	operator==(const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
+	bool operator==(const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
 	{
    		return x.size() == y.size() && !(x<y) && !(y<x);
 	}
 
-
 	template <class Key, class T, class Compare, class Allocator>
-	bool
-	operator!=(const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
+	bool operator!=(const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
 	{
    		return !(x == y);
 	}		
 
 	template <class Key, class T, class Compare, class Allocator>
-	bool
-	operator> (const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
+	bool operator> (const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
 	{
 		return (y < x);
 	}
 
 	template <class Key, class T, class Compare, class Allocator>
-	bool
-	operator>=(const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
+	bool operator>=(const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
 	{
 		return !(x < y);
 	}
 
 	template <class Key, class T, class Compare, class Allocator>
-	bool
-	operator<=(const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
+	bool operator<=(const map<Key, T, Compare, Allocator>& x, const map<Key, T, Compare, Allocator>& y)
 	{
 		return !(y < x);
 	}
